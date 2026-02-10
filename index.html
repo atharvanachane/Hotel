@@ -82,24 +82,11 @@
             transform: translateY(0);
         }
 
-        /* Staggered Children Animation */
-        .reveal.active .grid > div {
+        /* Staggered Children Animation - Logic moved to JS for scalability */
+        .reveal.active .stagger-item {
             opacity: 0;
             animation: fadeUpItem 0.6s ease-out forwards;
         }
-        
-        .reveal.active .grid > div:nth-child(1) { animation-delay: 100ms; }
-        .reveal.active .grid > div:nth-child(2) { animation-delay: 200ms; }
-        .reveal.active .grid > div:nth-child(3) { animation-delay: 300ms; }
-        .reveal.active .grid > div:nth-child(4) { animation-delay: 400ms; }
-        .reveal.active .grid > div:nth-child(5) { animation-delay: 500ms; }
-        .reveal.active .grid > div:nth-child(6) { animation-delay: 600ms; }
-        .reveal.active .grid > div:nth-child(7) { animation-delay: 100ms; }
-        .reveal.active .grid > div:nth-child(8) { animation-delay: 200ms; }
-        .reveal.active .grid > div:nth-child(9) { animation-delay: 300ms; }
-        .reveal.active .grid > div:nth-child(10) { animation-delay: 400ms; }
-        .reveal.active .grid > div:nth-child(11) { animation-delay: 500ms; }
-        .reveal.active .grid > div:nth-child(12) { animation-delay: 600ms; }
 
         @keyframes fadeUpItem {
             from { opacity: 0; transform: translateY(20px); }
@@ -189,10 +176,10 @@
     <tms-navbar></tms-navbar>
     
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-black/80 z-10"></div>
-            <!-- Background image removed -->
+            <!-- Background pattern -->
             <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ff5500\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
         </div>
         
@@ -208,8 +195,8 @@
 
             <!-- Main Title with Glow -->
             <h1 class="font-outfit font-black mb-6 leading-[0.85] tracking-tight">
-                <span class="text-7xl md:text-9xl lg:text-[11rem] text-white block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default">THE MISAL</span>
-                <span class="text-6xl md:text-8xl lg:text-9xl text-tms-orange block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default delay-100">STORIES</span>
+                <span class="text-5xl md:text-8xl lg:text-9xl text-white block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default">THE MISAL</span>
+                <span class="text-4xl md:text-6xl lg:text-7xl text-tms-orange block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default delay-100">STORY AND MORE</span>
             </h1>
             
             <!-- Description -->
@@ -294,7 +281,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Item 1 -->
-                    <div onclick="openStory('mumbai')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('mumbai')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Mumbai Misal</h5>
@@ -306,7 +293,7 @@
                         </div>
                     </div>
                     <!-- Item 2 -->
-                    <div onclick="openStory('puneri')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('puneri')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Puneri Misal</h5>
@@ -318,7 +305,7 @@
                         </div>
                     </div>
                     <!-- Item 3 -->
-                    <div onclick="openStory('kolhapuri')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('kolhapuri')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Kolhapuri Misal</h5>
@@ -330,7 +317,7 @@
                         </div>
                     </div>
                     <!-- Item 4 -->
-                    <div onclick="openStory('nagpuri')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('nagpuri')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Nagpuri Misal</h5>
@@ -342,7 +329,7 @@
                         </div>
                     </div>
                     <!-- Item 5 -->
-                    <div onclick="openStory('dahi')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('dahi')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Dahi Misal</h5>
@@ -354,7 +341,7 @@
                         </div>
                     </div>
                     <!-- Item 6 -->
-                    <div onclick="openStory('fry')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('fry')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Fry Misal</h5>
@@ -366,7 +353,7 @@
                         </div>
                     </div>
                     <!-- Item 7 -->
-                    <div onclick="openStory('taripoha')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('taripoha')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Nagpuri Tari Poha</h5>
@@ -378,7 +365,7 @@
                         </div>
                     </div>
                     <!-- Item 8 -->
-                    <div onclick="openStory('jain')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('jain')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Jain Misal</h5>
@@ -390,7 +377,7 @@
                         </div>
                     </div>
                     <!-- Item 9 -->
-                    <div onclick="openStory('cheese')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('cheese')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Cheese Misal</h5>
@@ -402,7 +389,7 @@
                         </div>
                     </div>
                     <!-- Item 10 -->
-                    <div onclick="openStory('butter')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('butter')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Butter Misal</h5>
@@ -414,7 +401,7 @@
                         </div>
                     </div>
                     <!-- Special Item -->
-                    <div onclick="openStory('special')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-tms-orange transition-all relative overflow-hidden shadow-lg shadow-tms-orange/10 hover:-translate-y-1 box-glow">
+                    <div onclick="openStory('special')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-tms-orange transition-all relative overflow-hidden shadow-lg shadow-tms-orange/10 hover:-translate-y-1 box-glow">
                         <div class="absolute inset-0 bg-tms-orange/0 hover:bg-tms-orange/10 transition-colors duration-300"></div>
                         <div class="absolute top-0 right-0 bg-tms-orange text-white text-[10px] font-bold px-2 py-1 tracking-widest shadow-md z-10">CHEF SPECIAL</div>
                         <div class="relative z-10">
@@ -427,7 +414,7 @@
                         </div>
                     </div>
                     <!-- Item 12 -->
-                    <div onclick="openStory('pav')" class="cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
+                    <div onclick="openStory('pav')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow group relative overflow-hidden">
                          <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors">Pav Misal</h5>
@@ -454,31 +441,31 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- South Indian Items -->
-                    <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                    <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                         <h5 class="font-semibold text-lg text-tms-orange text-gray-200">Sabudana Khichadi</h5>
                         <div class="text-right"><span class="text-tms-orange font-bold text-xl">₹59</span></div>
                     </div>
-                    <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                    <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                         <h5 class="font-semibold text-tms-orange  text-lg text-gray-200">Kanda Poha</h5>
                         <div class="text-right"><span class="text-tms-orange font-bold text-xl">₹39</span></div>
                     </div>
-                    <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                    <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                         <h5 class="font-semibold text-tms-orange  text-lg text-gray-200">Idli Sambar</h5>
                         <div class="text-right"><span class="text-tms-orange font-bold text-xl">₹49</span></div>
                     </div>
-                    <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                    <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                         <h5 class="font-semibold text-tms-orange  text-lg text-gray-200">Medu Wada Sambar</h5>
                         <div class="text-right"><span class="text-tms-orange font-bold text-xl">₹59</span></div>
                     </div>
-                    <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                    <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                         <h5 class="font-semibold text-tms-orange    text-lg text-gray-200">Sada Dosa</h5>
                         <div class="text-right"><span class="text-tms-orange font-bold text-xl">₹49</span></div>
                     </div>
-                    <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                    <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                         <h5 class="font-semibold text-tms-orange text-lg text-gray-200">Masala Dosa</h5>
                         <div class="text-right"><span class="text-tms-orange font-bold text-xl">₹69</span></div>
                     </div>
-                    <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                    <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                         <h5 class="font-semibold text-tms-orange text-lg text-gray-200">Mysore Masala Dosa</h5>
                         <div class="text-right"><span class="text-tms-orange font-bold text-xl">₹89</span></div>
                     </div>
@@ -496,7 +483,7 @@
                         <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Thali & Combos</h4>
                     </div>
                     <div class="space-y-4">
-                        <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <div>
                                 <h5 class="font-semibold text-tms-orange  text-lg text-gray-200">Pitla Bhakri Thecha</h5>
                                 <p class="text-gray-400 text-sm">Traditional Maharashtrian combo</p>
@@ -505,7 +492,7 @@
                                 <span class="text-tms-orange font-bold text-xl">₹99</span>
                             </div>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <div>
                                 <h5 class="font-semibold text-tms-orange text-lg text-gray-200">Veg Thali</h5>
                                 <p class="text-gray-400 text-sm">Complete vegetarian meal</p>
@@ -526,23 +513,23 @@
                         <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Sides & Add-Ons</h4>
                     </div>
                     <div class="space-y-4">
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Pav Plain (1pc)</span>
                             <span class="text-tms-orange font-bold">₹5</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Butter Pav (1pc)</span>
                             <span class="text-tms-orange font-bold">₹9</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Bhakri</span>
                             <span class="text-tms-orange font-bold">₹24</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Farsan/Sev Extra</span>
                             <span class="text-tms-orange font-bold">₹19</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Curd (small)</span>
                             <span class="text-tms-orange font-bold">₹29</span>
                         </div>
@@ -561,27 +548,27 @@
                         <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Beverages</h4>
                     </div>
                     <div class="space-y-4">
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Masala Chai</span>
                             <span class="text-tms-orange font-bold">₹10</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Kulhad Chai</span>
                             <span class="text-tms-orange font-bold">₹15</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Hot Coffee</span>
                             <span class="text-tms-orange font-bold">₹29</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange  text-gray-200">Cold Coffee</span>
                             <span class="text-tms-orange font-bold">₹59</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange text-gray-200">Lassi</span>
                             <span class="text-tms-orange font-bold">₹49</span>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <span class="font-medium text-tms-orange  text-gray-200">Solkadi / Kokum</span>
                             <span class="text-tms-orange font-bold">₹29</span>
                         </div>
@@ -597,7 +584,7 @@
                         <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Desserts</h4>
                     </div>
                     <div class="space-y-4">
-                        <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <div>
                                 <h5 class="font-semibold text-tms-orange  text-lg text-gray-200">Gulab Jamun (2 pcs)</h5>
                                 <p class="text-gray-400 text-sm">Classic Indian sweet</p>
@@ -606,7 +593,7 @@
                                 <span class="text-tms-orange font-bold text-xl">₹49</span>
                             </div>
                         </div>
-                        <div class="bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
+                        <div class="stagger-item bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-white/5 box-glow transition-all hover:-translate-y-1">
                             <div>
                                 <h5 class="font-semibold  text-tms-orange text-lg text-gray-200">Pineapple Sheera</h5>
                                 <p class="text-gray-400 text-sm">Sweet semolina delight</p>
@@ -665,7 +652,7 @@
     <tms-footer></tms-footer>
 
     <!-- Extraordinary Story Modal -->
-    <div id="story-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div id="story-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" aria-modal="true" role="dialog">
         <!-- Blur Backdrop -->
         <div class="absolute inset-0 bg-black/90 backdrop-blur-xl transition-opacity duration-500" onclick="closeStory()"></div>
         
@@ -683,8 +670,11 @@
                 </button>
 
                 <div class="text-center">
-                    <span class="inline-block py-1 px-4 rounded-full bg-tms-orange/10 text-tms-orange text-xs font-bold tracking-[0.2em] uppercase mb-6 border border-tms-orange/20 shadow-[0_0_15px_rgba(255,85,0,0.2)]">The Origin Story</span>
+                    <span class="inline-block py-1 px-4 rounded-full bg-tms-orange/10 text-tms-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 border border-tms-orange/20 shadow-[0_0_15px_rgba(255,85,0,0.2)]">The Origin Story</span>
                     
+                    <!-- Dynamic Spice Level Container -->
+                    <div id="modal-spice" class="flex justify-center gap-1 mb-4 text-2xl h-8"></div>
+
                     <h3 id="modal-title" class="font-playfair text-4xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-xl tracking-wide"></h3>
                     
                     <!-- Decorative Divider -->
@@ -733,10 +723,10 @@
                             </a>
 
                             <!-- Desktop Menu -->
-                            <div class="hidden md:flex items-center gap-8">
-                                <a href="#" class="text-xs font-bold tracking-widest text-gray-300 hover:text-white transition-colors uppercase hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">HOME</a>
-                                <a href="#about" class="text-xs font-bold tracking-widest text-gray-300 hover:text-white transition-colors uppercase hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">STORY</a>
-                                <a href="#menu" class="text-xs font-bold tracking-widest text-gray-300 hover:text-white transition-colors uppercase hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">MENU</a>
+                            <div class="hidden md:flex items-center gap-8" id="desktop-menu">
+                                <a href="#home" class="nav-link text-xs font-bold tracking-widest text-gray-300 hover:text-white transition-colors uppercase hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">HOME</a>
+                                <a href="#about" class="nav-link text-xs font-bold tracking-widest text-gray-300 hover:text-white transition-colors uppercase hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">STORY</a>
+                                <a href="#menu" class="nav-link text-xs font-bold tracking-widest text-gray-300 hover:text-white transition-colors uppercase hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">MENU</a>
     
                                 <a href="#franchise" class="px-6 py-3 bg-tms-orange text-white rounded-full text-xs font-bold hover:bg-orange-600 transition-all duration-300 tracking-wider uppercase shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 border border-transparent hover:border-white/20">JOIN FRANCHISE</a>
                             </div>
@@ -753,7 +743,7 @@
                         <button id="close-menu-btn" class="absolute top-6 right-6 text-white hover:text-tms-orange">
                             <i data-feather="x" class="w-8 h-8"></i>
                         </button>
-                        <a href="#" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Home</a>
+                        <a href="#home" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Home</a>
                         <a href="#about" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Story</a>
                         <a href="#menu" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Menu</a>
                         <a href="#franchise" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Franchise</a>
@@ -767,6 +757,7 @@
                 
                 // Attach event listeners for mobile menu
                 this.setupMobileMenu();
+                this.setupScrollSpy();
             }
 
             setupMobileMenu() {
@@ -787,6 +778,29 @@
                     link.addEventListener('click', toggleMenu);
                 });
             }
+
+            // Highlighting active link based on scroll
+            setupScrollSpy() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = this.querySelectorAll('.nav-link');
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(link => {
+                                link.classList.remove('text-tms-orange');
+                                link.classList.add('text-gray-300');
+                                if (link.getAttribute('href') === `#${entry.target.id}`) {
+                                    link.classList.remove('text-gray-300');
+                                    link.classList.add('text-tms-orange');
+                                }
+                            });
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                sections.forEach(section => observer.observe(section));
+            }
         }
         customElements.define('tms-navbar', TMSNavbar);
 
@@ -806,7 +820,7 @@
                                     Serving authentic Maharashtrian flavors with love and passion. Join us on a culinary journey through the state's diverse misal traditions.
                                 </p>
                                 <div class="flex gap-4">
-                                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-orange transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                    <a href="https://www.instagram.com/tmsandmore?igsh=bzgzOWVyZ2p4dXJs" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-orange transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="instagram" class="w-5 h-5"></i>
                                     </a>
                                     <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-orange transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
@@ -862,66 +876,92 @@
         customElements.define('tms-footer', TMSFooter);
 
         // --- Story Data ---
+        // Added spice Level: 1 (Mild) to 5 (Extreme)
         const stories = {
             mumbai: {
                 title: "Mumbai Misal",
+                spice: 3,
                 content: "Born in the bustling lanes of Dadar, this misal reflects the city's spirit—fast, flavorful, and filling. Created to fuel the mill workers in the 1960s, it uses a unique blend of sprout curry and potato bhaji, topped with lots of farsan for that essential crunch."
             },
             puneri: {
                 title: "Puneri Misal",
+                spice: 2,
                 content: "A royal treat from the cultural capital of Maharashtra. The Puneri misal balances heat with a hint of jaggery and tamarind, creating a sweet and tangy profile. It is traditionally served with Pohe underneath and generous amounts of Chiwda on top."
             },
             kolhapuri: {
                 title: "Kolhapuri Misal",
+                spice: 5,
                 content: "Originating from the land of warriors, this is for the brave heart. Known for its 'Cut' (spicy floating oil), it uses the famous Kanda Lasun Masala and is fiery red. It serves a punch of flavor in every bite, often accompanied by a side of 'Pandhra Rassa' to cool down."
             },
             nagpuri: {
                 title: "Nagpuri Misal",
+                spice: 4,
                 content: "Influenced by the spicy Saoji cuisine, this version uses black pepper and dry roasted spices (Kala Masala). It is distinctively dark, incredibly aromatic, and carries a lingering heat that hits the back of the throat, exactly how Nagpuris love it."
             },
             dahi: {
                 title: "Dahi Misal",
+                spice: 1,
                 content: "A summer innovation. To counter the searing heat of Maharashtra's summers, local vendors started topping the spicy curry with cool, thick yogurt. The contrast between the hot, spicy gravy and the cold, sweet curd creates a perfect harmony."
             },
             fry: {
                 title: "Fry Misal",
+                spice: 3,
                 content: "A texture-lover's delight. Instead of the usual curry-heavy dish, the focus here is on the spicy fried farsan and potato bhaji mix. It is served with just enough gravy to bind it together without making it soggy, ensuring every bite is crispy."
             },
             taripoha: {
                 title: "Nagpuri Tari Poha",
+                spice: 4,
                 content: "Not strictly a misal, but a close cousin. In Nagpur, Poha isn't complete without a ladle of spicy chana gravy (Tari) on top. It was created to turn a light breakfast snack into a hearty meal that sustains you throughout the day."
             },
             jain: {
                 title: "Jain Misal",
+                spice: 2,
                 content: "Created to serve the Jain community who crave the spice but avoid onions and garlic. It uses a clever blend of ginger, tomatoes, and dry spices to recreate the rich body of the gravy without using any roots, proving that restrictions breed creativity."
             },
             cheese: {
                 title: "Cheese Misal",
+                spice: 1,
                 content: "The modern fusion. As global palates met local spice, the addition of grated processed cheese melted over the hot curry became an instant hit with the younger generation. The cheese cuts through the spice, adding a creamy, savory layer."
             },
             butter: {
                 title: "Butter Misal",
+                spice: 2,
                 content: "A rich indulgence inspired by Pav Bhaji. This version floats a dollop of white butter on the spicy rassa. As it melts, it smooths out the heat and adds a velvety texture to the curry, making it a luxurious breakfast treat."
             },
             special: {
                 title: "TMS Special Misal",
+                spice: 3,
                 content: "Our Chef's masterpiece. This is a clay-pot slow-cooked curry that combines the best of all worlds. It is served with two types of farsan, buttered pav, and a side of Gulab Jamun to end your spicy meal on a sweet note."
             },
             pav: {
                 title: "Pav Misal",
+                spice: 3,
                 content: "The humble classic. Just the rassa and the bread. The original poor man's protein, simple yet satisfying. It strips away the fancy toppings to focus purely on the flavor of the spicy moth bean curry."
             }
         };
 
         // --- Logic ---
+        function getSpiceHTML(level) {
+            if(!level) return '';
+            let html = '';
+            for(let i=0; i<5; i++) {
+                if(i < level) html += '<span class="text-tms-orange drop-shadow-md">🌶️</span>';
+                else html += '<span class="opacity-20 grayscale">🌶️</span>';
+            }
+            return html;
+        }
+
         function openStory(id) {
             const modal = document.getElementById('story-modal');
             const title = document.getElementById('modal-title');
             const content = document.getElementById('modal-content');
+            const spiceContainer = document.getElementById('modal-spice');
             
             if(stories[id]) {
                 title.textContent = stories[id].title;
                 content.textContent = stories[id].content;
+                spiceContainer.innerHTML = getSpiceHTML(stories[id].spice);
+                
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden'; // Prevent scrolling
                 
@@ -940,7 +980,7 @@
             // 1. Initialize Icons
             feather.replace();
 
-            // 2. Scroll Reveal Animation
+            // 2. Scroll Reveal Animation & Stagger Logic
             const revealElements = document.querySelectorAll('.reveal');
             
             const revealOnScroll = () => {
@@ -951,6 +991,15 @@
                     const elementTop = element.getBoundingClientRect().top;
                     if (elementTop < windowHeight - elementVisible) {
                         element.classList.add('active');
+                        
+                        // Dynamically Add Stagger Delays to Children
+                        // This removes the need for hardcoded CSS nth-child
+                        const staggerItems = element.querySelectorAll('.stagger-item');
+                        staggerItems.forEach((item, index) => {
+                            // Calculate delay based on index (row-aware for grids if needed, but simple linear delay works well)
+                            const delay = (index % 6) * 100; // Reset delay every 6 items for grid feel
+                            item.style.animationDelay = `${delay}ms`;
+                        });
                     }
                 });
             };
