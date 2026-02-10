@@ -27,8 +27,6 @@
                 extend: {
                     colors: {
                         // THEME: Red and White Overrides
-                        // We map "black" to "white" and "white" to "black" to invert the theme 
-                        // without changing the class names in the HTML structure.
                         
                         black: '#ffffff',      // bg-black becomes White Background
                         white: '#111827',      // text-white becomes Dark Gray Text
@@ -43,10 +41,11 @@
                         },
 
                         // Brand Colors
-                        'tms-orange': '#dc2626',      // Changed to RED-600
-                        'tms-orange-dark': '#991b1b', // Changed to RED-800
-                        'tms-dark': '#f9fafb',        // Changed to Gray-50 (Very light gray)
-                        'tms-gray': '#ffffff',        // Changed to White (Cards)
+                        'tms-orange': '#dc2626',      // Spicy Red
+                        'tms-orange-dark': '#991b1b', // Darker Red
+                        'tms-blue': '#2563eb',        // Royal Blue Accent (Kept for Footer)
+                        'tms-dark': '#f9fafb',        // Gray-50 (Very light gray)
+                        'tms-gray': '#ffffff',        // White (Cards)
                     },
                     fontFamily: {
                         'outfit': ['Outfit', 'sans-serif'],
@@ -99,7 +98,7 @@
             transform: translateY(0);
         }
 
-        /* Staggered Children Animation - Logic moved to JS for scalability */
+        /* Staggered Children Animation */
         .reveal.active .stagger-item {
             opacity: 0;
             animation: fadeUpItem 0.6s ease-out forwards;
@@ -115,10 +114,10 @@
             text-shadow: 0 0 30px rgba(220, 38, 38, 0.3); /* Red Glow */
         }
 
-        /* Box Glow Effect for Hover States - Updated for Light Mode Shadows */
+        /* Box Glow Effect for Hover States */
         .box-glow {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Default shadow */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
         }
         .box-glow:hover {
             box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.25); /* Red shadow on hover */
@@ -130,7 +129,7 @@
         .mouse-icon {
             width: 24px;
             height: 40px;
-            border: 2px solid rgba(0, 0, 0, 0.3); /* Darker border for light mode */
+            border: 2px solid rgba(0, 0, 0, 0.3); 
             border-radius: 20px;
             position: relative;
         }
@@ -159,7 +158,7 @@
             animation: fadeInUp 1s ease-out forwards;
         }
         
-        /* Modal Animation - Updated for Premium Feel */
+        /* Modal Animation */
         #story-modal {
             transition: opacity 0.4s ease-in-out;
         }
@@ -206,7 +205,7 @@
             <!-- Spacing to ensure visibility below navbar -->
             <div class="h-12 md:h-6"></div>
 
-            <!-- Top Subhead -->
+            <!-- Top Subhead - Reverted to Orange -->
             <p class="text-tms-orange font-bold text-sm tracking-[0.2em] uppercase mb-4 animate-fade-in-up shadow-black drop-shadow-lg">
                 KAHANI HAR SWAAD KI...
             </p>
@@ -225,19 +224,19 @@
             
             <!-- Buttons -->
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards]">
-                <!-- Updated Menu Button: Forced #ffffff text for contrast -->
+                <!-- Menu Button -->
                 <a href="#menu" class="px-10 py-4 bg-tms-orange text-[#ffffff] text-sm font-bold tracking-wider rounded-full hover:bg-tms-orange-dark transform hover:scale-105 shadow-lg shadow-tms-orange/40 uppercase box-glow border border-transparent transition-all">
                     The Menu
                 </a>
                 
-                <!-- Mouse Icon in between buttons (Visible on larger screens) -->
+                <!-- Mouse Icon -->
                 <div class="hidden sm:block mx-4">
                      <div class="mouse-icon">
                         <div class="mouse-wheel"></div>
                     </div>
                 </div>
 
-                <!-- Updated Join Button: Changed to Red Outline style -->
+                <!-- Join Button -->
                 <a href="#franchise" class="px-10 py-4 border border-tms-orange text-tms-orange text-sm font-bold tracking-wider rounded-full hover:bg-tms-orange hover:text-[#ffffff] transition-all duration-300 uppercase box-glow">
                     Join Us
                 </a>
@@ -265,6 +264,7 @@
                         From Kolhapur's bold heat to Pune's tangy twist, each variant narrates a tale of regional pride and culinary craftsmanship passed down through generations.
                     </p>
                     
+                    <!-- Quote - Reverted Accent to Orange -->
                     <blockquote class="border-l-4 border-tms-orange pl-6 py-2 italic bg-white/5 rounded-r-lg hover:bg-white/10 transition-colors duration-300 cursor-default">
                         <p class="text-gray-200 text-lg font-playfair">
                             "Every city has a secret spice, every kitchen has a story. We brought them all together under one roof."
@@ -294,6 +294,7 @@
             <!-- Misal Varieties -->
             <div class="mb-16 reveal">
                 <div class="flex items-center gap-4 mb-8">
+                    <!-- Icon - Reverted to Orange -->
                     <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                         <i data-feather="coffee" class="text-tms-orange w-6 h-6"></i>
                     </div>
@@ -423,6 +424,7 @@
                     <!-- Special Item -->
                     <div onclick="openStory('special')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-6 flex justify-between items-center border border-tms-orange transition-all relative overflow-hidden shadow-lg shadow-tms-orange/10 hover:-translate-y-1 box-glow">
                         <div class="absolute inset-0 bg-tms-orange/0 hover:bg-tms-orange/10 transition-colors duration-300"></div>
+                        <!-- Badge - Reverted to Orange -->
                         <div class="absolute top-0 right-0 bg-tms-orange text-white text-[10px] font-bold px-2 py-1 tracking-widest shadow-md z-10">CHEF SPECIAL</div>
                         <div class="relative z-10">
                             <h5 class="font-semibold text-lg text-tms-orange">TMS Special Misal</h5>
@@ -451,6 +453,7 @@
             <!-- South Indian & Breakfast -->
             <div class="mb-16 reveal">
                 <div class="flex items-center gap-4 mb-8">
+                    <!-- Icon - Reverted to Orange -->
                     <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                         <i data-feather="sunrise" class="text-tms-orange w-6 h-6"></i>
                     </div>
@@ -497,6 +500,7 @@
                 <!-- Thali Section -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
+                        <!-- Icon - Reverted to Orange -->
                         <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="grid" class="text-tms-orange w-6 h-6"></i>
                         </div>
@@ -527,6 +531,7 @@
                 <!-- Sides & Add-ons -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
+                        <!-- Icon - Reverted to Orange -->
                         <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="plus-circle" class="text-tms-orange w-6 h-6"></i>
                         </div>
@@ -562,6 +567,7 @@
                 <!-- Beverages -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
+                        <!-- Icon - Reverted to Orange -->
                         <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="droplet" class="text-tms-orange w-6 h-6"></i>
                         </div>
@@ -598,6 +604,7 @@
                 <!-- Desserts -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
+                        <!-- Icon - Reverted to Orange -->
                         <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="heart" class="text-tms-orange w-6 h-6"></i>
                         </div>
@@ -645,16 +652,19 @@
                 
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
+                        <!-- Icon Reverted to Orange + Red Shadow -->
                         <i data-feather="trending-up" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">High ROI</h4>
                         <p class="text-gray-400 text-sm">Break even in 8-12 months with proven business model</p>
                     </div>
                     <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
+                        <!-- Icon Reverted to Orange + Red Shadow -->
                         <i data-feather="headphones" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">Full Support</h4>
                         <p class="text-gray-400 text-sm">Training, marketing, and operational support provided</p>
                     </div>
                     <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
+                        <!-- Icon Reverted to Orange + Red Shadow -->
                         <i data-feather="shield" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">Trusted Brand</h4>
                         <p class="text-gray-400 text-sm">13 years of excellence in Maharashtra cuisine</p>
@@ -842,13 +852,16 @@
                                     Serving authentic Maharashtrian flavors with love and passion. Join us on a culinary journey through the state's diverse misal traditions.
                                 </p>
                                 <div class="flex gap-4">
-                                    <a href="https://www.instagram.com/tmsandmore?igsh=bzgzOWVyZ2p4dXJs" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-orange transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                    <!-- Hover Blue - KEPT AS REQUESTED -->
+                                    <a href="https://www.instagram.com/tmsandmore?igsh=bzgzOWVyZ2p4dXJs" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="instagram" class="w-5 h-5"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-orange transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                    <!-- Hover Blue - KEPT AS REQUESTED -->
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="facebook" class="w-5 h-5"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-orange transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                    <!-- Hover Blue - KEPT AS REQUESTED -->
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="twitter" class="w-5 h-5"></i>
                                     </a>
                                 </div>
