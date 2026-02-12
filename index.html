@@ -45,6 +45,9 @@
                         'tms-blue': '#2563eb',        // Royal Blue Accent (Kept for Footer)
                         'tms-dark': '#f9fafb',        // Gray-50 (Very light gray)
                         'tms-gray': '#ffffff',        // White (Cards)
+                        'swiggy': '#FC8019',
+                        'zomato': '#E23744',
+                        'whatsapp': '#25D366'
                     },
                     fontFamily: {
                         'outfit': ['Outfit', 'sans-serif'],
@@ -184,10 +187,26 @@
             background-image: radial-gradient(rgba(220, 38, 38, 0.05) 1px, transparent 1px);
             background-size: 20px 20px;
         }
+
+        /* Floating WhatsApp Button Pulse */
+        @keyframes shadowPulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse {
+            animation: shadowPulse 2s infinite;
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200 font-outfit overflow-x-hidden selection:bg-tms-orange selection:text-white">
     
+    <!-- WhatsApp Customer Care FAB (Fixed missing closing tag) -->
+    <a href="https://wa.link/cd1xiw" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-[60] bg-whatsapp text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group flex items-center justify-center whatsapp-pulse" title="Customer Care">
+        <i data-feather="message-circle" class="w-6 h-6"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 font-bold text-sm whitespace-nowrap">Customer Care</span>
+    </a>
+
     <!-- Navigation Component -->
     <tms-navbar></tms-navbar>
     
@@ -579,12 +598,11 @@
                 </div>
             </div>
 
-              <!-- Thali & Combos Grid -->
+            <!-- Thali & Combos Grid -->
             <div class="grid md:grid-cols-2 gap-8 mb-16 reveal">
                 <!-- Thali Section -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
-                        <!-- Icon - Reverted to Orange -->
                         <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="grid" class="text-tms-orange w-6 h-6"></i>
                         </div>
@@ -623,7 +641,6 @@
                 <!-- Sides & Add-ons -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
-                        <!-- Icon - Reverted to Orange -->
                         <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="plus-circle" class="text-tms-orange w-6 h-6"></i>
                         </div>
@@ -679,7 +696,6 @@
                 <!-- Beverages -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
-                        <!-- Icon - Reverted to Orange -->
                         <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="droplet" class="text-tms-orange w-6 h-6"></i>
                         </div>
@@ -740,7 +756,6 @@
                 <!-- Desserts -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
-                        <!-- Icon - Reverted to Orange -->
                         <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="heart" class="text-tms-orange w-6 h-6"></i>
                         </div>
@@ -782,6 +797,33 @@
         </div>
     </section>
 
+    <!-- Home Delivery Section -->
+    <section id="delivery" class="py-20 md:py-32 bg-tms-dark border-y border-tms-orange/10">
+        <div class="container mx-auto px-4 text-center reveal">
+            <h2 class="text-tms-orange font-medium mb-4 tracking-widest uppercase text-sm">Online Ordering</h2>
+            <h3 class="font-playfair text-4xl md:text-5xl font-bold text-white mb-6">Home Delivery</h3>
+            <p class="text-gray-300 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+                Can't make it to our outlet? No worries! Get the authentic taste of Maharashtra delivered straight to your doorstep with our delivery partners.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <!-- Swiggy Button -->
+                <a href="https://www.swiggy.com/restaurants/the-misal-stories-and-more-anand-nagar-sinhgad-road-pune-486047" target="_blank" class="w-full sm:w-64 py-5 bg-swiggy text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-swiggy/30">
+                    <span>Swiggy</span>
+                    <i data-feather="shopping-bag" class="w-6 h-6"></i>
+                </a>
+
+                <!-- Zomato Button -->
+                <a href="https://www.zomato.com/pune/the-misal-stories-and-more-sinhgad-road/order" target="_blank" class="w-full sm:w-64 py-5 bg-zomato text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-zomato/30">
+                    <span>Zomato</span>
+                    <i data-feather="shopping-cart" class="w-6 h-6"></i>
+                </a>
+            </div>
+            
+            <p class="mt-8 text-gray-500 text-sm italic">Service available from 8:00 AM to 10:00 PM</p>
+        </div>
+    </section>
+
     <!-- Franchise Section -->
     <section id="franchise" class="py-20 md:py-32 bg-tms-gray relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23dc2626\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
@@ -796,26 +838,22 @@
                 
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
-                        <!-- Icon Reverted to Orange + Red Shadow -->
                         <i data-feather="trending-up" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">High ROI</h4>
                         <p class="text-gray-400 text-sm">Break even in 8-12 months with proven business model</p>
                     </div>
                     <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
-                        <!-- Icon Reverted to Orange + Red Shadow -->
                         <i data-feather="headphones" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">Full Support</h4>
                         <p class="text-gray-400 text-sm">Training, marketing, and operational support provided</p>
                     </div>
                     <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
-                        <!-- Icon Reverted to Orange + Red Shadow -->
                         <i data-feather="shield" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">Trusted Brand</h4>
                         <p class="text-gray-400 text-sm">13 years of excellence in Maharashtra cuisine</p>
                     </div>
                 </div>
                 
-                <!-- Updated Franchise Apply Button: Forced #ffffff text -->
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ3GlN0Tvtah6GCvqTI0cdsb0b-LsCSQqkv9aAh9gVKgEq3g/viewform?usp=publish-editor" target="_blank" class="inline-block px-10 py-4 bg-tms-orange text-[#ffffff] font-bold rounded-full hover:bg-tms-orange-dark transition-all duration-300 transform hover:scale-105 shadow-lg shadow-tms-orange/25 box-glow border border-transparent">
                     Apply for Franchise
                 </a>
@@ -900,7 +938,6 @@
                             <!-- Logo -->
                             <a href="#" class="group">
                                 <img src="logo.jpeg" alt="The Misal Story Logo" class="h-14 w-auto rounded-lg box-glow transform group-hover:scale-105 transition-transform bg-white p-0.5">
-                                
                             </a>
 
                             <!-- Desktop Menu -->
@@ -908,9 +945,10 @@
                                 <a href="#home" class="nav-link text-xs font-bold tracking-widest text-[#ffffff]/70 hover:text-[#ffffff] transition-colors uppercase hover:drop-shadow-md">HOME</a>
                                 <a href="#about" class="nav-link text-xs font-bold tracking-widest text-[#ffffff]/70 hover:text-[#ffffff] transition-colors uppercase hover:drop-shadow-md">STORY</a>
                                 <a href="#menu" class="nav-link text-xs font-bold tracking-widest text-[#ffffff]/70 hover:text-[#ffffff] transition-colors uppercase hover:drop-shadow-md">MENU</a>
+                                <a href="#franchise" class="nav-link text-xs font-bold tracking-widest text-[#ffffff]/70 hover:text-[#ffffff] transition-colors uppercase hover:drop-shadow-md">FRANCHISE</a>
     
-                                <!-- Updated Navbar Button: White Background for contrast against Red Nav -->
-                                <a href="#franchise" class="px-6 py-3 bg-[#ffffff] text-tms-orange rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 tracking-wider uppercase shadow-lg hover:shadow-xl border border-transparent">JOIN FRANCHISE</a>
+                                <!-- Updated Navbar Button: Order Now leads to Home Delivery -->
+                                <a href="#delivery" class="px-6 py-3 bg-[#ffffff] text-tms-orange rounded-full text-xs font-bold hover:bg-gray-100 transition-all duration-300 tracking-wider uppercase shadow-lg hover:shadow-xl border border-transparent">ORDER NOW</a>
                             </div>
 
                             <!-- Mobile Menu Button -->
@@ -928,8 +966,8 @@
                         <a href="#home" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Home</a>
                         <a href="#about" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Story</a>
                         <a href="#menu" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Menu</a>
+                        <a href="#delivery" class="mobile-link text-2xl font-outfit font-bold text-tms-orange uppercase">Order Now</a>
                         <a href="#franchise" class="mobile-link text-2xl font-outfit font-bold hover:text-tms-orange uppercase">Franchise</a>
-                        <a href="#franchise" class="mobile-link text-xl font-bold text-tms-orange uppercase">Join Franchise</a>
                     </div>
                 </nav>
                 `;
@@ -1005,15 +1043,13 @@
                                     Serving authentic Maharashtrian flavors with love and passion. Join us on a culinary journey through the state's diverse misal traditions.
                                 </p>
                                 <div class="flex gap-4">
-                                    <!-- Hover Blue - KEPT AS REQUESTED -->
+                                    <!-- Social Links -->
                                     <a href="https://www.instagram.com/tmsandmore?igsh=bzgzOWVyZ2p4dXJs" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="instagram" class="w-5 h-5"></i>
                                     </a>
-                                    <!-- Hover Blue - KEPT AS REQUESTED -->
                                     <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="facebook" class="w-5 h-5"></i>
                                     </a>
-                                    <!-- Hover Blue - KEPT AS REQUESTED -->
                                     <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="twitter" class="w-5 h-5"></i>
                                     </a>
@@ -1027,6 +1063,7 @@
                                     <li><a href="#" class="hover:text-tms-orange transition-colors">Home</a></li>
                                     <li><a href="#about" class="hover:text-tms-orange transition-colors">Our Story</a></li>
                                     <li><a href="#menu" class="hover:text-tms-orange transition-colors">Full Menu</a></li>
+                                    <li><a href="#delivery" class="hover:text-tms-orange transition-colors">Home Delivery</a></li>
                                     <li><a href="#franchise" class="hover:text-tms-orange transition-colors">Franchise</a></li>
                                 </ul>
                             </div>
@@ -1196,11 +1233,9 @@
                         element.classList.add('active');
                         
                         // Dynamically Add Stagger Delays to Children
-                        // This removes the need for hardcoded CSS nth-child
                         const staggerItems = element.querySelectorAll('.stagger-item');
                         staggerItems.forEach((item, index) => {
-                            // Calculate delay based on index (row-aware for grids if needed, but simple linear delay works well)
-                            const delay = (index % 6) * 100; // Reset delay every 6 items for grid feel
+                            const delay = (index % 6) * 100; // Reset delay every 6 items
                             item.style.animationDelay = `${delay}ms`;
                         });
                     }
