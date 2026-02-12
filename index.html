@@ -27,7 +27,6 @@
                 extend: {
                     colors: {
                         // THEME: Red and White Overrides
-                        
                         black: '#ffffff',      // bg-black becomes White Background
                         white: '#111827',      // text-white becomes Dark Gray Text
                         
@@ -725,48 +724,54 @@
         <div class="absolute inset-0 bg-white/80 backdrop-blur-xl transition-opacity duration-500" onclick="closeStory()"></div>
         
         <!-- Premium Modal Card -->
-        <div class="modal-card relative w-full max-w-2xl bg-black rounded-2xl overflow-hidden shadow-2xl transform transition-all scale-100 border border-tms-orange/30">
+        <div class="modal-card relative w-full max-w-2xl max-h-[90vh] bg-black rounded-2xl overflow-hidden shadow-2xl transform transition-all scale-100 border border-tms-orange/30 flex flex-col">
             
             <!-- Decorative Header Gradient -->
-            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-tms-orange/20 to-transparent"></div>
+            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-tms-orange/20 to-transparent pointer-events-none z-0"></div>
             
-            <!-- Modal Content Wrapper -->
-            <div class="relative z-10 p-8 md:p-12">
-                <!-- Close Button -->
-                <button onclick="closeStory()" class="absolute top-6 right-6 p-2 rounded-full bg-tms-orange/10 text-tms-orange hover:text-black hover:bg-tms-orange transition-all duration-300 border border-tms-orange/20 group">
-                    <i data-feather="x" class="w-6 h-6 transform group-hover:rotate-90 transition-transform duration-300"></i>
-                </button>
+            <!-- Close Button (Pinned to Card Top Right) -->
+            <button onclick="closeStory()" class="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full bg-black/60 text-tms-orange hover:text-black hover:bg-tms-orange transition-all duration-300 border border-tms-orange/50 group z-30 backdrop-blur-md shadow-lg">
+                <i data-feather="x" class="w-5 h-5 transform group-hover:rotate-90 transition-transform duration-300"></i>
+            </button>
+            
+            <!-- Modal Content Wrapper (Scrollable) -->
+            <div class="relative z-10 p-6 md:p-8 overflow-y-auto flex-1 custom-scrollbar">
 
-                <div class="text-center">
-                    <span class="inline-block py-1 px-4 rounded-full bg-tms-orange/10 text-tms-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 border border-tms-orange/20 shadow-[0_0_15px_rgba(220,38,38,0.2)]">The Origin Story</span>
+                <div class="text-center relative mt-4 md:mt-2">
+                    <!-- Story Image Displayed Big and Circular - Scaled down for better fit -->
+                    <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden border-4 border-tms-orange shadow-[0_0_20px_rgba(220,38,38,0.3)] mb-4 relative z-10 bg-white">
+                        <img id="modal-image" src="" alt="Misal Story" class="w-full h-full object-cover">
+                    </div>
+
+                    <span class="inline-block py-1 px-3 md:px-4 rounded-full bg-tms-orange/10 text-tms-orange text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-3 md:mb-4 border border-tms-orange/20 shadow-[0_0_15px_rgba(220,38,38,0.2)]">The Origin Story</span>
                     
                     <!-- Dynamic Spice Level Container -->
-                    <div id="modal-spice" class="flex justify-center gap-1 mb-4 text-2xl h-8"></div>
+                    <div id="modal-spice" class="flex justify-center gap-1 mb-3 text-xl md:text-2xl h-6 md:h-8"></div>
 
-                    <h3 id="modal-title" class="font-playfair text-4xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-xl tracking-wide"></h3>
+                    <h3 id="modal-title" class="font-playfair text-3xl md:text-4xl font-bold text-white mb-4 leading-tight drop-shadow-xl tracking-wide"></h3>
                     
                     <!-- Decorative Divider -->
-                    <div class="flex justify-center items-center gap-4 mb-8 opacity-80">
-                        <div class="h-px w-16 bg-gradient-to-r from-transparent to-tms-orange"></div>
-                        <div class="p-2 border border-tms-orange/30 rounded-full">
-                            <i data-feather="book-open" class="text-tms-orange w-5 h-5"></i>
+                    <div class="flex justify-center items-center gap-3 md:gap-4 mb-6 opacity-80">
+                        <div class="h-px w-12 md:w-16 bg-gradient-to-r from-transparent to-tms-orange"></div>
+                        <div class="p-1.5 md:p-2 border border-tms-orange/30 rounded-full">
+                            <i data-feather="book-open" class="text-tms-orange w-4 h-4"></i>
                         </div>
-                        <div class="h-px w-16 bg-gradient-to-l from-transparent to-tms-orange"></div>
+                        <div class="h-px w-12 md:w-16 bg-gradient-to-l from-transparent to-tms-orange"></div>
                     </div>
                 </div>
 
                 <!-- Story Text -->
                 <div class="modal-bg-texture absolute inset-0 opacity-5 pointer-events-none"></div>
-                <div class="relative prose prose-lg max-w-none">
-                    <p id="modal-content" class="text-gray-300 leading-loose text-center font-light italic font-playfair text-xl md:text-2xl drop-shadow-md"></p>
+                <div class="relative prose prose-lg max-w-none px-2">
+                    <p id="modal-content" class="text-gray-300 leading-relaxed text-center font-light italic font-playfair text-lg md:text-xl drop-shadow-md"></p>
                 </div>
 
                 <!-- Footer Action -->
-                <div class="mt-12 text-center">
-                   <button onclick="closeStory()" class="group relative px-8 py-3 bg-transparent overflow-hidden rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <div class="mt-8 mb-2 text-center">
+                   <button onclick="closeStory()" class="group relative px-6 md:px-8 py-2.5 md:py-3 bg-transparent overflow-hidden rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer">
                         <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-tms-orange to-tms-orange-dark opacity-10 group-hover:opacity-20 transition-opacity"></span>
                         <span class="absolute inset-0 w-full h-full border border-tms-orange/50 rounded-full"></span>
-                        <span class="relative text-tms-orange font-bold tracking-widest text-xs uppercase group-hover:text-white transition-colors">Close Chapter</span>
+                        <span class="relative text-tms-orange font-bold tracking-widest text-[10px] md:text-xs uppercase group-hover:text-white transition-colors">Close Chapter</span>
                    </button>
                 </div>
             </div>
@@ -956,62 +961,74 @@
             mumbai: {
                 title: "Mumbai Misal",
                 spice: 3,
-                content: "Born in the bustling lanes of Dadar, this misal reflects the city's spirit—fast, flavorful, and filling. Created to fuel the mill workers in the 1960s, it uses a unique blend of sprout curry and potato bhaji, topped with lots of farsan for that essential crunch."
+                content: "Born in the bustling lanes of Dadar, this misal reflects the city's spirit—fast, flavorful, and filling. Created to fuel the mill workers in the 1960s, it uses a unique blend of sprout curry and potato bhaji, topped with lots of farsan for that essential crunch.",
+                image: "misal.jpg"
             },
             puneri: {
                 title: "Puneri Misal",
                 spice: 2,
-                content: "A royal treat from the cultural capital of Maharashtra. The Puneri misal balances heat with a hint of jaggery and tamarind, creating a sweet and tangy profile. It is traditionally served with Pohe underneath and generous amounts of Chiwda on top."
+                content: "A royal treat from the cultural capital of Maharashtra. The Puneri misal balances heat with a hint of jaggery and tamarind, creating a sweet and tangy profile. It is traditionally served with Pohe underneath and generous amounts of Chiwda on top.",
+                image: "punerimisaloav.jpg"
             },
             kolhapuri: {
                 title: "Kolhapuri Misal",
                 spice: 5,
-                content: "Originating from the land of warriors, this is for the brave heart. Known for its 'Cut' (spicy floating oil), it uses the famous Kanda Lasun Masala and is fiery red. It serves a punch of flavor in every bite, often accompanied by a side of 'Pandhra Rassa' to cool down."
+                content: "Originating from the land of warriors, this is for the brave heart. Known for its 'Cut' (spicy floating oil), it uses the famous Kanda Lasun Masala and is fiery red. It serves a punch of flavor in every bite, often accompanied by a side of 'Pandhra Rassa' to cool down.",
+                image: "Kolhapuri_misal_pav.avif"
             },
             nagpuri: {
                 title: "Nagpuri Misal",
                 spice: 4,
-                content: "Influenced by the spicy Saoji cuisine, this version uses black pepper and dry roasted spices (Kala Masala). It is distinctively dark, incredibly aromatic, and carries a lingering heat that hits the back of the throat, exactly how Nagpuris love it."
+                content: "Influenced by the spicy Saoji cuisine, this version uses black pepper and dry roasted spices (Kala Masala). It is distinctively dark, incredibly aromatic, and carries a lingering heat that hits the back of the throat, exactly how Nagpuris love it.",
+                image: "nashik.webp"
             },
             dahi: {
                 title: "Dahi Misal",
                 spice: 1,
-                content: "A summer innovation. To counter the searing heat of Maharashtra's summers, local vendors started topping the spicy curry with cool, thick yogurt. The contrast between the hot, spicy gravy and the cold, sweet curd creates a perfect harmony."
+                content: "A summer innovation. To counter the searing heat of Maharashtra's summers, local vendors started topping the spicy curry with cool, thick yogurt. The contrast between the hot, spicy gravy and the cold, sweet curd creates a perfect harmony.",
+                image: "dahi.jpg"
             },
             fry: {
                 title: "Fry Misal",
                 spice: 3,
-                content: "A texture-lover's delight. Instead of the usual curry-heavy dish, the focus here is on the spicy fried farsan and potato bhaji mix. It is served with just enough gravy to bind it together without making it soggy, ensuring every bite is crispy."
+                content: "A texture-lover's delight. Instead of the usual curry-heavy dish, the focus here is on the spicy fried farsan and potato bhaji mix. It is served with just enough gravy to bind it together without making it soggy, ensuring every bite is crispy.",
+                image: "frymisal.jpg"
             },
             taripoha: {
                 title: "Nagpuri Tari Poha",
                 spice: 4,
-                content: "Not strictly a misal, but a close cousin. In Nagpur, Poha isn't complete without a ladle of spicy chana gravy (Tari) on top. It was created to turn a light breakfast snack into a hearty meal that sustains you throughout the day."
+                content: "Not strictly a misal, but a close cousin. In Nagpur, Poha isn't complete without a ladle of spicy chana gravy (Tari) on top. It was created to turn a light breakfast snack into a hearty meal that sustains you throughout the day.",
+                image: "nagpuritaripoha.jpg"
             },
             jain: {
                 title: "Jain Misal",
                 spice: 2,
-                content: "Created to serve the Jain community who crave the spice but avoid onions and garlic. It uses a clever blend of ginger, tomatoes, and dry spices to recreate the rich body of the gravy without using any roots, proving that restrictions breed creativity."
+                content: "Created to serve the Jain community who crave the spice but avoid onions and garlic. It uses a clever blend of ginger, tomatoes, and dry spices to recreate the rich body of the gravy without using any roots, proving that restrictions breed creativity.",
+                image: "jain.webp"
             },
             cheese: {
                 title: "Cheese Misal",
                 spice: 1,
-                content: "The modern fusion. As global palates met local spice, the addition of grated processed cheese melted over the hot curry became an instant hit with the younger generation. The cheese cuts through the spice, adding a creamy, savory layer."
+                content: "The modern fusion. As global palates met local spice, the addition of grated processed cheese melted over the hot curry became an instant hit with the younger generation. The cheese cuts through the spice, adding a creamy, savory layer.",
+                image: "chesse.avif"
             },
             butter: {
                 title: "Butter Misal",
                 spice: 2,
-                content: "A rich indulgence inspired by Pav Bhaji. This version floats a dollop of white butter on the spicy rassa. As it melts, it smooths out the heat and adds a velvety texture to the curry, making it a luxurious breakfast treat."
+                content: "A rich indulgence inspired by Pav Bhaji. This version floats a dollop of white butter on the spicy rassa. As it melts, it smooths out the heat and adds a velvety texture to the curry, making it a luxurious breakfast treat.",
+                image: "buttermisal.jpg"
             },
             special: {
                 title: "TMS Special Misal",
                 spice: 3,
-                content: "Our Chef's masterpiece. This is a clay-pot slow-cooked curry that combines the best of all worlds. It is served with two types of farsan, buttered pav, and a side of Gulab Jamun to end your spicy meal on a sweet note."
+                content: "Our Chef's masterpiece. This is a clay-pot slow-cooked curry that combines the best of all worlds. It is served with two types of farsan, buttered pav, and a side of Gulab Jamun to end your spicy meal on a sweet note.",
+                image: "thali.jpg"
             },
             pav: {
                 title: "Pav Misal",
                 spice: 3,
-                content: "The humble classic. Just the rassa and the bread. The original poor man's protein, simple yet satisfying. It strips away the fancy toppings to focus purely on the flavor of the spicy moth bean curry."
+                content: "The humble classic. Just the rassa and the bread. The original poor man's protein, simple yet satisfying. It strips away the fancy toppings to focus purely on the flavor of the spicy moth bean curry.",
+                image: "pavmisal.jpg"
             }
         };
 
@@ -1031,11 +1048,14 @@
             const title = document.getElementById('modal-title');
             const content = document.getElementById('modal-content');
             const spiceContainer = document.getElementById('modal-spice');
+            const image = document.getElementById('modal-image');
             
             if(stories[id]) {
                 title.textContent = stories[id].title;
                 content.textContent = stories[id].content;
                 spiceContainer.innerHTML = getSpiceHTML(stories[id].spice);
+                image.src = stories[id].image;
+                image.alt = stories[id].title;
                 
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden'; // Prevent scrolling
