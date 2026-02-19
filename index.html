@@ -42,7 +42,7 @@
                         // Brand Colors
                         'tms-orange': '#dc2626',      // Spicy Red
                         'tms-orange-dark': '#991b1b', // Darker Red
-                        'tms-blue': '#2563eb',        // Royal Blue Accent (Kept for Footer)
+                        'tms-blue': '#2563eb',        // Royal Blue Accent
                         'tms-dark': '#f9fafb',        // Gray-50 (Very light gray)
                         'tms-gray': '#ffffff',        // White (Cards)
                         'swiggy': '#FC8019',
@@ -113,7 +113,7 @@
         
         /* Text Glow Effect for Title (Static) */
         .text-glow {
-            text-shadow: 0 0 30px rgba(220, 38, 38, 0.3); /* Red Glow */
+            text-shadow: 0 0 30px rgba(220,38,38,0.3);
         }
 
         /* Box Glow Effect for Hover States */
@@ -131,7 +131,7 @@
         .mouse-icon {
             width: 24px;
             height: 40px;
-            border: 2px solid rgba(0, 0, 0, 0.3); 
+            border: 2px solid rgba(255, 255, 255, 0.4); 
             border-radius: 20px;
             position: relative;
         }
@@ -201,7 +201,7 @@
 </head>
 <body class="bg-black text-gray-200 font-outfit overflow-x-hidden selection:bg-tms-orange selection:text-white">
     
-    <!-- WhatsApp Customer Care FAB (Fixed missing closing tag) -->
+    <!-- WhatsApp Customer Care FAB -->
     <a href="https://wa.link/cd1xiw" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-[60] bg-whatsapp text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group flex items-center justify-center whatsapp-pulse" title="Customer Care">
         <i data-feather="message-circle" class="w-6 h-6"></i>
         <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 font-bold text-sm whitespace-nowrap">Customer Care</span>
@@ -213,11 +213,19 @@
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-black/80 z-10"></div>
+
+            <!-- Background Image with Parallax -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+                 style="background-image: url('images/misal.webp');">
+            </div>
+
+            <!-- Dark Overlay (for text visibility) -->
+            <div class="absolute inset-0 z-10" style="background: rgba(0,0,0,0.65);"></div>
+
             <!-- Background pattern -->
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23dc2626\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23dc2626\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20 z-10"></div>
         </div>
-        
+
         <div class="container mx-auto px-4 relative z-20 text-center">
             
             <!-- Spacing to ensure visibility below navbar -->
@@ -230,34 +238,22 @@
 
             <!-- Main Title with Glow -->
             <h1 class="font-outfit font-black mb-6 leading-[0.85] tracking-tight">
-                <span class="text-5xl md:text-8xl lg:text-9xl text-white block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default">THE MISAL</span>
+                <!-- Using text-black which maps to true white in this theme -->
+                <span class="text-5xl md:text-8xl lg:text-9xl text-black block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default">THE MISAL</span>
                 <span class="text-4xl md:text-6xl lg:text-7xl text-tms-orange block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default delay-100">STORY AND MORE</span>
             </h1>
             
             <!-- Description -->
-            <p class="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium drop-shadow-md opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]">
+            <p class="text-gray-100 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium drop-shadow-md opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]">
                 Experience the spicy legacy of Maharashtra.<br class="hidden md:block">
                 Every bowl is a chapter, every bite is a story.
             </p>
             
-            <!-- Buttons -->
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards]">
-                <!-- Menu Button -->
-                <a href="#menu" class="px-10 py-4 bg-tms-orange text-[#ffffff] text-sm font-bold tracking-wider rounded-full hover:bg-tms-orange-dark transform hover:scale-105 shadow-lg shadow-tms-orange/40 uppercase box-glow border border-transparent transition-all">
-                    The Menu
-                </a>
-                
-                <!-- Mouse Icon -->
-                <div class="hidden sm:block mx-4">
-                     <div class="mouse-icon">
-                        <div class="mouse-wheel"></div>
-                    </div>
+            <!-- Mouse Scroll Indicator -->
+            <div class="flex justify-center opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards]">
+                <div class="mouse-icon">
+                    <div class="mouse-wheel"></div>
                 </div>
-
-                <!-- Join Button -->
-                <a href="#franchise" class="px-10 py-4 border border-tms-orange text-tms-orange text-sm font-bold tracking-wider rounded-full hover:bg-tms-orange hover:text-[#ffffff] transition-all duration-300 uppercase box-glow">
-                    Join Us
-                </a>
             </div>
         </div>
         
@@ -284,7 +280,7 @@
                     
                     <!-- Quote - Reverted Accent to Orange -->
                     <blockquote class="border-l-4 border-tms-orange pl-6 py-2 italic bg-white/5 rounded-r-lg hover:bg-white/10 transition-colors duration-300 cursor-default">
-                        <p class="text-gray-200 text-lg font-playfair">
+                        <p class="text-white text-lg font-playfair">
                             "Every city has a secret spice, every kitchen has a story. We brought them all together under one roof."
                         </p>
                     </blockquote>
@@ -298,7 +294,6 @@
             </div>
         </div>
     </section>
-
     <!-- Menu Section -->
     <section id="menu" class="py-20 md:py-32 bg-black">
         <div class="container mx-auto px-4">
@@ -661,7 +656,7 @@
                                 <img src="images/butterpav.jpg" alt="Side" class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Butter Pav (1pc)</span>
-                            <span class="text-tms-orange font-bold">₹9</span>
+                            <span class="text-tms-orange font-bold">₹15</span>
                         </div>
                         <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
                             <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
