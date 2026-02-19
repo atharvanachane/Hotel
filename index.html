@@ -1148,26 +1148,35 @@
         class TMSFooter extends HTMLElement {
             connectedCallback() {
                 this.innerHTML = `
-                <footer id="contact" class="bg-black border-t border-white/10 pt-20 pb-10">
-                    <div class="container mx-auto px-4">
+                <footer id="contact" class="relative bg-black border-t border-black/10 pt-20 pb-10 overflow-hidden">
+                    <!-- Parallax Background -->
+                    <div class="absolute inset-0 z-0">
+                        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+                             style="background-image: url('images/misal.webp');">
+                        </div>
+                        <!-- Dark Overlay -->
+                        <div class="absolute inset-0 z-10" style="background: rgba(0,0,0,0.85);"></div>
+                    </div>
+
+                    <div class="container mx-auto px-4 relative z-20">
                         <div class="grid md:grid-cols-4 gap-12 mb-16">
                             <!-- Brand -->
                             <div class="col-span-1 md:col-span-2">
                                 <div class="mb-6">
-                                    <img src="images/logo.jpeg" alt="The Misal Story Logo" class="h-24 w-auto rounded-xl bg-white p-1">
+                                    <img src="images/logo.jpeg" alt="The Misal Story Logo" class="h-24 w-auto rounded-xl bg-black p-1">
                                 </div>
-                                <p class="text-gray-400 mb-8 max-w-sm">
+                                <p class="text-black mb-8 max-w-sm">
                                     Serving authentic Maharashtrian flavors with love and passion. Join us on a culinary journey through the state's diverse misal traditions.
                                 </p>
                                 <div class="flex gap-4">
                                     <!-- Social Links -->
-                                    <a href="https://www.instagram.com/tmsandmore?igsh=bzgzOWVyZ2p4dXJs" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                    <a href="https://www.instagram.com/tmsandmore?igsh=bzgzOWVyZ2p4dXJs" target="_blank" class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="instagram" class="w-5 h-5"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                    <a href="#" class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="facebook" class="w-5 h-5"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-white hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                    <a href="#" class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
                                         <i data-feather="twitter" class="w-5 h-5"></i>
                                     </a>
                                 </div>
@@ -1175,20 +1184,19 @@
 
                             <!-- Quick Links -->
                             <div>
-                                <h4 class="font-playfair font-bold text-xl mb-6 text-white">Quick Links</h4>
-                                <ul class="space-y-4 text-gray-400">
-                                    <li><a href="#" class="hover:text-tms-orange transition-colors">Home</a></li>
+                                <h4 class="font-playfair font-bold text-xl mb-6 text-black">Quick Links</h4>
+                                <ul class="space-y-4 text-black">
+                                    <li><a href="#home" class="hover:text-tms-orange transition-colors">Home</a></li>
                                     <li><a href="#about" class="hover:text-tms-orange transition-colors">Our Story</a></li>
                                     <li><a href="#menu" class="hover:text-tms-orange transition-colors">Full Menu</a></li>
                                     <li><a href="#delivery" class="hover:text-tms-orange transition-colors">Home Delivery</a></li>
-                                    <li><a href="#franchise" class="hover:text-tms-orange transition-colors">Franchise</a></li>
                                 </ul>
                             </div>
 
                             <!-- Contact -->
                             <div>
-                                <h4 class="font-playfair font-bold text-xl mb-6 text-white">Contact Us</h4>
-                                <ul class="space-y-4 text-gray-400">
+                                <h4 class="font-playfair font-bold text-xl mb-6 text-black">Contact Us</h4>
+                                <ul class="space-y-4 text-black">
                                     <li class="flex items-start gap-3">
                                         <i data-feather="map-pin" class="w-5 h-5 text-tms-orange mt-1"></i>
                                         <span>Shop No. 4, Anand Nagar,<br>Thane, Maharashtra 400604</span>
@@ -1205,7 +1213,7 @@
                             </div>
                         </div>
 
-                        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                        <div class="border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-black">
                             <p>&copy; 2026 The Misal Stories & MORE. All rights reserved.</p>
                             <p><span class="text-tms-orange">❤</span> for Foodies</p>
                         </div>
