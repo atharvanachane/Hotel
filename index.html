@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE MISAL STORIES | Authentic Maharashtra Cuisine</title>
-    <meta name="description" content="Experience the authentic taste of Maharashtra at The Misal Stories. Mumbai Misal, Kolhapuri Misal, Puneri Misal and more. Franchise opportunities available.">
-    
+    <meta name="description"
+        content="Experience the authentic taste of Maharashtra at The Misal Stories. Mumbai Misal, Kolhapuri Misal, Puneri Misal and more. Franchise opportunities available.">
+
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="images/logo.jpeg">
     <link rel="apple-touch-icon" href="images/logo.jpeg">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -29,7 +33,7 @@
                         // THEME: Red and White Overrides
                         black: '#ffffff',      // bg-black becomes White Background
                         white: '#111827',      // text-white becomes Dark Gray Text
-                        
+
                         // Remap Grays for Light Mode contrast
                         gray: {
                             200: '#1f2937',    // Light text becomes Dark (gray-800)
@@ -78,15 +82,18 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: #f1f1f1; 
+            background: #f1f1f1;
         }
+
         ::-webkit-scrollbar-thumb {
-            background: #d1d5db; 
+            background: #d1d5db;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
-            background: #dc2626; 
+            background: #dc2626;
         }
 
         /* Smooth reveal animation classes */
@@ -95,6 +102,7 @@
             transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
@@ -107,34 +115,44 @@
         }
 
         @keyframes fadeUpItem {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         /* Text Glow Effect for Title (Static) */
         .text-glow {
-            text-shadow: 0 0 30px rgba(220,38,38,0.3);
+            text-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
         }
 
         /* Box Glow Effect for Hover States */
         .box-glow {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+
         .box-glow:hover {
-            box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.25); /* Red shadow on hover */
+            box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.25);
+            /* Red shadow on hover */
             border-color: rgba(220, 38, 38, 0.3);
             transform: translateY(-5px) scale(1.02);
         }
-        
+
         /* Mouse scroll animation */
         .mouse-icon {
             width: 24px;
             height: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.4); 
+            border: 2px solid rgba(255, 255, 255, 0.4);
             border-radius: 20px;
             position: relative;
         }
+
         .mouse-wheel {
             width: 4px;
             height: 8px;
@@ -146,40 +164,66 @@
             transform: translateX(-50%);
             animation: scroll 1.5s infinite;
         }
+
         @keyframes scroll {
-            0% { top: 8px; opacity: 1; }
-            100% { top: 20px; opacity: 0; }
+            0% {
+                top: 8px;
+                opacity: 1;
+            }
+
+            100% {
+                top: 20px;
+                opacity: 0;
+            }
         }
 
         /* Utility for fade in */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .animate-fade-in-up {
             animation: fadeInUp 1s ease-out forwards;
         }
-        
+
         /* Modal Animation */
         #story-modal {
             transition: opacity 0.4s ease-in-out;
         }
+
         #story-modal.hidden {
             opacity: 0;
             pointer-events: none;
         }
+
         #story-modal:not(.hidden) {
             opacity: 1;
             pointer-events: auto;
         }
-        
+
         /* Card Scale In */
         #story-modal:not(.hidden) .modal-card {
             animation: modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
         @keyframes modalPop {
-            from { transform: scale(0.9) translateY(20px); opacity: 0; }
-            to { transform: scale(1) translateY(0); opacity: 1; }
+            from {
+                transform: scale(0.9) translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Modal Background Texture */
@@ -190,65 +234,87 @@
 
         /* Floating WhatsApp Button Pulse */
         @keyframes shadowPulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
         }
+
         .whatsapp-pulse {
             animation: shadowPulse 2s infinite;
         }
     </style>
 </head>
+
 <body class="bg-black text-gray-200 font-outfit overflow-x-hidden selection:bg-tms-orange selection:text-white">
-    
+
     <!-- WhatsApp Customer Care FAB -->
-    <a href="https://wa.link/cd1xiw" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-[60] bg-whatsapp text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group flex items-center justify-center whatsapp-pulse" title="Customer Care">
+    <a href="https://wa.link/cd1xiw" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 z-[60] bg-whatsapp text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group flex items-center justify-center whatsapp-pulse"
+        title="Customer Care">
         <i data-feather="message-circle" class="w-6 h-6"></i>
-        <span class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 font-bold text-sm whitespace-nowrap">Customer Care</span>
+        <span
+            class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-500 font-bold text-sm whitespace-nowrap">Customer
+            Care</span>
     </a>
 
     <!-- Navigation Component -->
     <tms-navbar></tms-navbar>
-    
+
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div class="absolute inset-0 z-0">
 
             <!-- Background Image with Parallax -->
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-                 style="background-image: url('images/misal.webp');">
+                style="background-image: url('images/misal.webp');">
             </div>
 
             <!-- Dark Overlay (for text visibility) -->
             <div class="absolute inset-0 z-10" style="background: rgba(0,0,0,0.65);"></div>
 
             <!-- Background pattern -->
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23dc2626\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20 z-10"></div>
+            <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23dc2626\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20 z-10">
+            </div>
         </div>
 
         <div class="container mx-auto px-4 relative z-20 text-center">
-            
+
             <!-- Spacing to ensure visibility below navbar -->
             <div class="h-12 md:h-6"></div>
 
             <!-- Top Subhead - Reverted to Orange -->
-            <p class="text-tms-orange font-bold text-sm tracking-[0.2em] uppercase mb-4 animate-fade-in-up shadow-black drop-shadow-lg">
+            <p
+                class="text-tms-orange font-bold text-sm tracking-[0.2em] uppercase mb-4 animate-fade-in-up shadow-black drop-shadow-lg">
                 KAHANI HAR SWAAD KI...
             </p>
 
             <!-- Main Title with Glow -->
             <h1 class="font-outfit font-black mb-6 leading-[0.85] tracking-tight">
                 <!-- Using text-black which maps to true white in this theme -->
-                <span class="text-5xl md:text-8xl lg:text-9xl text-black block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default">THE MISAL</span>
-                <span class="text-4xl md:text-6xl lg:text-7xl text-tms-orange block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default delay-100">STORY AND MORE</span>
+                <span
+                    class="text-5xl md:text-8xl lg:text-9xl text-black block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default">THE
+                    MISAL</span>
+                <span
+                    class="text-4xl md:text-6xl lg:text-7xl text-tms-orange block text-glow drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-default delay-100">STORY
+                    AND MORE</span>
             </h1>
-            
+
             <!-- Description -->
-            <p class="text-gray-100 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium drop-shadow-md opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]">
+            <p
+                class="text-gray-100 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium drop-shadow-md opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]">
                 Experience the spicy legacy of Maharashtra.<br class="hidden md:block">
                 Every bowl is a chapter, every bite is a story.
             </p>
-            
+
             <!-- Mouse Scroll Indicator -->
             <div class="flex justify-center opacity-0 animate-[fadeInUp_1s_ease-out_0.8s_forwards]">
                 <div class="mouse-icon">
@@ -256,10 +322,11 @@
                 </div>
             </div>
         </div>
-        
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce cursor-pointer sm:hidden" onclick="document.getElementById('about').scrollIntoView()">
+
+        <a href="#about"
+            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce cursor-pointer sm:hidden block">
             <i data-feather="chevron-down" class="text-white/50 w-8 h-8"></i>
-        </div>
+        </a>
     </section>
 
     <!-- About Section -->
@@ -269,28 +336,44 @@
                 <div>
                     <h3 class="text-tms-orange font-playfair text-5xl md:text-6xl font-bold mb-2">KAHANI</h3>
                     <h4 class="text-white font-playfair text-3xl md:text-4xl font-bold mb-8 italic">HAR SWAAD KI...</h4>
-                    
+
                     <p class="text-gray-300 mb-6 leading-relaxed text-lg">
-                        Every bowl of Misal carries the legacy of Maharashtra's streets—generations of perfected spice blends, the crunch of fresh farsan, and the warmth of buttered pav. It's not just breakfast; it's a cultural awakening that ignites the soul with every fiery bite.
+                        Every bowl of Misal carries the legacy of Maharashtra's streets—generations of perfected spice
+                        blends, the crunch of fresh farsan, and the warmth of buttered pav. It's not just breakfast;
+                        it's a cultural awakening that ignites the soul with every fiery bite.
                     </p>
-                    
+
                     <p class="text-gray-300 mb-6 leading-relaxed text-lg">
-                        From Kolhapur's bold heat to Pune's tangy twist, each variant narrates a tale of regional pride and culinary craftsmanship passed down through generations.
+                        From Kolhapur's bold heat to Pune's tangy twist, each variant narrates a tale of regional pride
+                        and culinary craftsmanship passed down through generations.
                     </p>
-                    
+
                     <!-- Quote - Reverted Accent to Orange -->
-                    <blockquote class="border-l-4 border-tms-orange pl-6 py-2 italic bg-white/5 rounded-r-lg hover:bg-white/10 transition-colors duration-300 cursor-default">
+                    <blockquote
+                        class="border-l-4 border-tms-orange pl-6 py-2 italic bg-white/5 rounded-r-lg hover:bg-white/10 transition-colors duration-300 cursor-default">
                         <p class="text-white text-lg font-playfair">
-                            "Every city has a secret spice, every kitchen has a story. We brought them all together under one roof."
+                            "Every city has a secret spice, every kitchen has a story. We brought them all together
+                            under one roof."
                         </p>
                     </blockquote>
                 </div>
                 <div class="relative group">
-                    <div class="absolute -top-4 -left-4 w-24 h-24 border-l-4 border-t-4 border-tms-orange transition-all duration-500 group-hover:top-0 group-hover:left-0"></div>
+                    <div
+                        class="absolute -top-4 -left-4 w-24 h-24 border-l-4 border-t-4 border-tms-orange transition-all duration-500 group-hover:top-0 group-hover:left-0">
+                    </div>
                     <!-- Updated Image Source with Float Animation -->
-                    <img src="images/misal.webp" alt="Authentic Misal Thali" class="w-full h-96 object-cover rounded-lg shadow-2xl transition-all duration-500 box-glow animate-float">
-                    <div class="absolute -bottom-4 -right-4 w-24 h-24 border-r-4 border-b-4 border-tms-orange transition-all duration-500 group-hover:bottom-0 group-hover:right-0"></div>
+                    <img src="images/misal.webp" alt="Authentic Misal Thali"
+                        class="w-full h-96 object-cover rounded-lg shadow-2xl transition-all duration-500 box-glow animate-float">
+                    <div
+                        class="absolute -bottom-4 -right-4 w-24 h-24 border-r-4 border-b-4 border-tms-orange transition-all duration-500 group-hover:bottom-0 group-hover:right-0">
+                    </div>
                 </div>
+            </div>
+
+            <!-- Full Width Image -->
+            <div class="mt-16 md:mt-24 reveal w-full flex justify-center">
+                <img src="images/TMS.jpeg" alt="The Misal Story"
+                    class="w-full max-w-5xl h-auto rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/10 box-glow transform transition-transform duration-500 hover:scale-[1.02]">
             </div>
         </div>
     </section>
@@ -300,7 +383,8 @@
             <div class="text-center mb-16 reveal">
                 <h2 class="text-tms-orange font-medium mb-2 tracking-wider uppercase">The Signature Collection</h2>
                 <h3 class="font-playfair text-4xl md:text-5xl font-bold text-white">MISAL VARIETIES</h3>
-                <div class="w-24 h-1 bg-tms-orange mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(220,38,38,0.8)]"></div>
+                <div class="w-24 h-1 bg-tms-orange mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(220,38,38,0.8)]">
+                </div>
                 <p class="text-gray-400 mt-4 text-sm animate-pulse">Click on any item to read its origin story</p>
             </div>
 
@@ -308,21 +392,30 @@
             <div class="mb-16 reveal">
                 <div class="flex items-center gap-4 mb-8">
                     <!-- Icon - Reverted to Orange -->
-                    <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
+                    <div
+                        class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                         <i data-feather="coffee" class="text-tms-orange w-6 h-6"></i>
                     </div>
                     <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Misal Varieties</h4>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Item 1 -->
-                    <div onclick="openStory('mumbai')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/misal.jpg" alt="Mumbai Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('mumbai')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/misal.jpg" alt="Mumbai Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Mumbai Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Street style with special masala</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Mumbai Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Street style
+                                with special masala</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹79</span>
@@ -330,14 +423,22 @@
                         </div>
                     </div>
                     <!-- Item 2 -->
-                    <div onclick="openStory('puneri')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/punerimisaloav.jpg" alt="Puneri Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('puneri')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/punerimisaloav.jpg" alt="Puneri Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Puneri Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Medium spicy with tangy twist</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Puneri Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Medium spicy
+                                with tangy twist</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹69</span>
@@ -345,14 +446,22 @@
                         </div>
                     </div>
                     <!-- Item 3 -->
-                    <div onclick="openStory('kolhapuri')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/Kolhapuri_misal_pav.avif" alt="Kolhapuri Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('kolhapuri')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/Kolhapuri_misal_pav.avif" alt="Kolhapuri Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Kolhapuri Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Extra spicy Kolhapuri style</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Kolhapuri Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Extra spicy
+                                Kolhapuri style</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹79</span>
@@ -360,14 +469,22 @@
                         </div>
                     </div>
                     <!-- Item 4 -->
-                    <div onclick="openStory('nagpuri')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/nashik.webp" alt="Nagpuri Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('nagpuri')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/nashik.webp" alt="Nagpuri Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Nagpuri Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Authentic Nagpur style</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Nagpuri Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Authentic
+                                Nagpur style</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹59</span>
@@ -375,14 +492,22 @@
                         </div>
                     </div>
                     <!-- Item 5 -->
-                    <div onclick="openStory('dahi')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/dahi.jpg" alt="Dahi Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('dahi')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/dahi.jpg" alt="Dahi Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Dahi Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Cool and spicy combination</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Dahi Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Cool and spicy
+                                combination</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹89</span>
@@ -390,14 +515,22 @@
                         </div>
                     </div>
                     <!-- Item 6 -->
-                    <div onclick="openStory('fry')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/frymisal.jpg" alt="Fry Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('fry')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/frymisal.jpg" alt="Fry Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Fry Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Crispy fried specialty</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Fry Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Crispy fried
+                                specialty</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹99</span>
@@ -405,14 +538,22 @@
                         </div>
                     </div>
                     <!-- Item 7 -->
-                    <div onclick="openStory('taripoha')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/nagpuritaripoha.jpg" alt="Nagpuri Tari Poha" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('taripoha')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/nagpuritaripoha.jpg" alt="Nagpuri Tari Poha"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Nagpuri Tari Poha</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Poha with spicy tari</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Nagpuri Tari Poha</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Poha with spicy
+                                tari</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹49</span>
@@ -420,14 +561,22 @@
                         </div>
                     </div>
                     <!-- Item 8 -->
-                    <div onclick="openStory('jain')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/jain.webp" alt="Jain Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('jain')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/jain.webp" alt="Jain Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Jain Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">No Onion/Garlic</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Jain Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">No Onion/Garlic
+                            </p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹99</span>
@@ -435,14 +584,22 @@
                         </div>
                     </div>
                     <!-- Item 9 -->
-                    <div onclick="openStory('cheese')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/chesse.avif" alt="Cheese Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('cheese')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/chesse.avif" alt="Cheese Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Cheese Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Loaded with cheese</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Cheese Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Loaded with
+                                cheese</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹129</span>
@@ -450,14 +607,22 @@
                         </div>
                     </div>
                     <!-- Item 10 -->
-                    <div onclick="openStory('butter')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/buttermisal.jpg" alt="Butter Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('butter')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/buttermisal.jpg" alt="Butter Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Butter Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Rich buttery flavor</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Butter Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Rich buttery
+                                flavor</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹119</span>
@@ -465,17 +630,25 @@
                         </div>
                     </div>
                     <!-- Special Item -->
-                    <div onclick="openStory('special')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-tms-orange transition-all relative overflow-hidden shadow-lg shadow-tms-orange/10 hover:-translate-y-1 box-glow">
-                        <div class="absolute inset-0 bg-tms-orange/0 hover:bg-tms-orange/10 transition-colors duration-300"></div>
+                    <div onclick="openStory('special')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-tms-orange transition-all relative overflow-hidden shadow-lg shadow-tms-orange/10 hover:-translate-y-1 box-glow">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 hover:bg-tms-orange/10 transition-colors duration-300">
+                        </div>
                         <!-- Badge - Reverted to Orange -->
-                        <div class="absolute top-0 right-0 bg-tms-orange text-white text-[10px] font-bold px-2 py-1 tracking-widest shadow-md z-10 rounded-bl-lg">CHEF SPECIAL</div>
-                        
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-tms-orange/30 shadow-sm mt-2">
-                            <img src="images/thali.jpg" alt="TMS Special Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-0 right-0 bg-tms-orange text-white text-[10px] font-bold px-2 py-1 tracking-widest shadow-md z-10 rounded-bl-lg">
+                            CHEF SPECIAL</div>
+
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-tms-orange/30 shadow-sm mt-2">
+                            <img src="images/thali.jpg" alt="TMS Special Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1 mt-2">
                             <h5 class="font-semibold text-lg text-tms-orange leading-tight">TMS Special Misal</h5>
-                            <p class="text-gray-400 text-[11px] mt-1 line-clamp-2 pr-2">Earthen pot, 2 butter pav, farsan, gulab jamun + unlimited tari</p>
+                            <p class="text-gray-400 text-[11px] mt-1 line-clamp-2 pr-2">Earthen pot, 2 butter pav,
+                                farsan, gulab jamun + unlimited tari</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end mt-2">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹139</span>
@@ -483,14 +656,22 @@
                         </div>
                     </div>
                     <!-- Item 12 -->
-                    <div onclick="openStory('pav')" class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                         <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/pavmisal.jpg" alt="Pav Misal" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div onclick="openStory('pav')"
+                        class="stagger-item cursor-pointer bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/pavmisal.jpg" alt="Pav Misal"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Pav Misal</h5>
-                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Classic preparation</p>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Pav Misal</h5>
+                            <p class="text-gray-400 text-xs mt-1 group-hover:text-gray-300 line-clamp-2">Classic
+                                preparation</p>
                         </div>
                         <div class="text-right relative z-10 flex flex-col items-end">
                             <span class="text-tms-orange font-bold text-xl leading-none">₹29</span>
@@ -504,91 +685,150 @@
             <div class="mb-16 reveal">
                 <div class="flex items-center gap-4 mb-8">
                     <!-- Icon - Reverted to Orange -->
-                    <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
+                    <div
+                        class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                         <i data-feather="sunrise" class="text-tms-orange w-6 h-6"></i>
                     </div>
                     <div class="flex-1">
-                        <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Breakfast & South Indian</h4>
+                        <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Breakfast & South Indian
+                        </h4>
                         <p class="text-tms-orange text-xs mt-1 tracking-wide">*Available only at Anand Nagar outlet</p>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Sabudana Khichadi -->
-                    <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/sabudana.webp" alt="Sabudana Khichadi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/sabudana.webp" alt="Sabudana Khichadi"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Sabudana Khichadi</h5>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Sabudana Khichadi</h5>
                         </div>
-                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹59</span></div>
+                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹59</span>
+                        </div>
                     </div>
                     <!-- Kanda Poha -->
-                    <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/Kanda-Poha-2.webp" alt="Kanda Poha" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/Kanda-Poha-2.webp" alt="Kanda Poha"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Kanda Poha</h5>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Kanda Poha</h5>
                         </div>
-                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹39</span></div>
+                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹39</span>
+                        </div>
                     </div>
                     <!-- Idli Sambar -->
-                    <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/idlisambar.webp" alt="Idli Sambar" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/idlisambar.webp" alt="Idli Sambar"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Idli Sambar</h5>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Idli Sambar</h5>
                         </div>
-                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹49</span></div>
+                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹49</span>
+                        </div>
                     </div>
                     <!-- Medu Wada Sambar -->
-                    <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/sambar-vada-or-medu-vadai-with-sambhar-and-chutney-popular-south-indian-snack-or-breakfast-free-photo.jpg" alt="Medu Wada Sambar" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/sambar-vada-or-medu-vadai-with-sambhar-and-chutney-popular-south-indian-snack-or-breakfast-free-photo.jpg"
+                                alt="Medu Wada Sambar"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Medu Wada Sambar</h5>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Medu Wada Sambar</h5>
                         </div>
-                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹59</span></div>
+                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹59</span>
+                        </div>
                     </div>
                     <!-- Sada Dosa -->
-                    <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/sadadosa.webp" alt="Sada Dosa" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/sadadosa.webp" alt="Sada Dosa"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Sada Dosa</h5>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Sada Dosa</h5>
                         </div>
-                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹49</span></div>
+                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹49</span>
+                        </div>
                     </div>
                     <!-- Masala Dosa -->
-                    <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/masaladosa.webp" alt="Masala Dosa" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/masaladosa.webp" alt="Masala Dosa"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Masala Dosa</h5>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Masala Dosa</h5>
                         </div>
-                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹69</span></div>
+                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹69</span>
+                        </div>
                     </div>
                     <!-- Mysore Masala Dosa -->
-                    <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                        <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                        <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                            <img src="images/maysoremasala.webp" alt="Mysore Masala Dosa" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                        </div>
+                        <div
+                            class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                            <img src="images/maysoremasala.webp" alt="Mysore Masala Dosa"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                         </div>
                         <div class="relative z-10 flex-1">
-                            <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Mysore Masala Dosa</h5>
+                            <h5
+                                class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                Mysore Masala Dosa</h5>
                         </div>
-                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹89</span></div>
+                        <div class="text-right relative z-10"><span class="text-tms-orange font-bold text-xl">₹89</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -598,32 +838,48 @@
                 <!-- Thali Section -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
+                        <div
+                            class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="grid" class="text-tms-orange w-6 h-6"></i>
                         </div>
                         <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Thali & Combos</h4>
                     </div>
                     <div class="space-y-4">
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                                <img src="images/pitala.jpg" alt="Pitla Bhakri" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                                <img src="images/pitala.jpg" alt="Pitla Bhakri"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             </div>
                             <div class="relative z-10 flex-1">
-                                <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Pitla Bhakri Thecha</h5>
+                                <h5
+                                    class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                    Pitla Bhakri Thecha</h5>
                                 <p class="text-gray-400 text-xs mt-1">Traditional Maharashtrian combo</p>
                             </div>
                             <div class="text-right relative z-10">
                                 <span class="text-tms-orange font-bold text-xl">₹99</span>
                             </div>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                                <img src="images/veg-thali-from-indian-cuisine-food-platter-consists-variety-veggiespaneer-dish-lentils-jeera-riceroti-sweet-dish-curd-onion-etc-selective-focus_726363-844.avif" alt="Veg Thali" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                                <img src="images/veg-thali-from-indian-cuisine-food-platter-consists-variety-veggiespaneer-dish-lentils-jeera-riceroti-sweet-dish-curd-onion-etc-selective-focus_726363-844.avif"
+                                    alt="Veg Thali"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             </div>
                             <div class="relative z-10 flex-1">
-                                <h5 class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">Veg Thali</h5>
+                                <h5
+                                    class="font-semibold text-lg text-tms-orange group-hover:text-white transition-colors leading-tight">
+                                    Veg Thali</h5>
                                 <p class="text-gray-400 text-xs mt-1">Complete vegetarian meal</p>
                             </div>
                             <div class="text-right relative z-10">
@@ -636,48 +892,71 @@
                 <!-- Sides & Add-ons -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
+                        <div
+                            class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="plus-circle" class="text-tms-orange w-6 h-6"></i>
                         </div>
                         <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Sides & Add-Ons</h4>
                     </div>
                     <div class="space-y-4">
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
                                 <img src="images/Plain-Pav-600x600.webp" alt="Side" class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Pav Plain (1pc)</span>
                             <span class="text-tms-orange font-bold">₹5</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
                                 <img src="images/butterpav.jpg" alt="Side" class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Butter Pav (1pc)</span>
                             <span class="text-tms-orange font-bold">₹15</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                                <img src="images/Multigrain-Bhakri.webp" alt="Bhakri" class="w-full h-full object-cover">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                                <img src="images/Multigrain-Bhakri.webp" alt="Bhakri"
+                                    class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Bhakri</span>
                             <span class="text-tms-orange font-bold">₹24</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
                                 <img src="images/sev.webp" alt="Farsan" class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Farsan/Sev Extra</span>
                             <span class="text-tms-orange font-bold">₹19</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                                <img src="images/curd.webp" alt="Curd" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                                <img src="images/curd.webp" alt="Curd"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Curd (small)</span>
                             <span class="text-tms-orange font-bold">₹29</span>
@@ -691,56 +970,83 @@
                 <!-- Beverages -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
+                        <div
+                            class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="droplet" class="text-tms-orange w-6 h-6"></i>
                         </div>
                         <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Beverages</h4>
                     </div>
                     <div class="space-y-4">
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
                                 <img src="images/masalachai.webp" alt="Tea" class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Masala Chai</span>
                             <span class="text-tms-orange font-bold">₹10</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
                                 <img src="images/kulhadchai.jpg" alt="Tea" class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Kulhad Chai</span>
                             <span class="text-tms-orange font-bold">₹15</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
                                 <img src="images/coffee.webp" alt="Coffee" class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Hot Coffee</span>
                             <span class="text-tms-orange font-bold">₹29</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
                                 <img src="images/Cold-Coffee.webp" alt="Coffee" class="w-full h-full object-cover">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Cold Coffee</span>
                             <span class="text-tms-orange font-bold">₹59</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                                <img src="images/lassi.webp" alt="Lassi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                                <img src="images/lassi.webp" alt="Lassi"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Lassi</span>
                             <span class="text-tms-orange font-bold">₹49</span>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                                <img src="images/solkadi.jpg" alt="Solkadi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                                <img src="images/solkadi.jpg" alt="Solkadi"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             </div>
                             <span class="font-medium text-tms-orange text-gray-200 flex-1">Solkadi / Kokum</span>
                             <span class="text-tms-orange font-bold">₹29</span>
@@ -751,15 +1057,20 @@
                 <!-- Desserts -->
                 <div>
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
+                        <div
+                            class="w-12 h-12 rounded-full bg-tms-orange/20 flex items-center justify-center animate-bounce">
                             <i data-feather="heart" class="text-tms-orange w-6 h-6"></i>
                         </div>
                         <h4 class="font-playfair text-2xl md:text-3xl font-bold text-white">Desserts</h4>
                     </div>
                     <div class="space-y-4">
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
                                 <img src="images/Gulan-Jamun.jpg" alt="Gulab Jamun" class="w-full h-full object-cover">
                             </div>
                             <div class="flex-1">
@@ -770,10 +1081,15 @@
                                 <span class="text-tms-orange font-bold text-xl">₹49</span>
                             </div>
                         </div>
-                        <div class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
-                            <div class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300"></div>
-                            <div class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
-                                <img src="images/pineapple.jpg" alt="Sheera" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="stagger-item bg-tms-gray rounded-xl p-4 flex items-center gap-4 border border-white/5 box-glow group relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-tms-orange/0 group-hover:bg-tms-orange/5 transition-colors duration-300">
+                            </div>
+                            <div
+                                class="relative z-10 w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-white/10 shadow-sm">
+                                <img src="images/pineapple.jpg" alt="Sheera"
+                                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             </div>
                             <div class="flex-1">
                                 <h5 class="font-semibold text-tms-orange text-lg text-gray-200">Pineapple Sheera</h5>
@@ -795,23 +1111,27 @@
             <h2 class="text-tms-orange font-medium mb-4 tracking-widest uppercase text-sm">Online Ordering</h2>
             <h3 class="font-playfair text-4xl md:text-5xl font-bold text-white mb-6">Home Delivery</h3>
             <p class="text-gray-300 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-                Can't make it to our outlet? No worries! Get the authentic taste of Maharashtra delivered straight to your doorstep with our delivery partners.
+                Can't make it to our outlet? No worries! Get the authentic taste of Maharashtra delivered straight to
+                your doorstep with our delivery partners.
             </p>
-            
+
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <!-- Swiggy Button -->
-                <a href="https://www.swiggy.com/restaurants/the-misal-stories-and-more-anand-nagar-sinhgad-road-pune-486047" target="_blank" class="w-full sm:w-64 py-5 bg-swiggy text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-swiggy/30">
+                <a href="https://www.swiggy.com/restaurants/the-misal-stories-and-more-anand-nagar-sinhgad-road-pune-486047"
+                    target="_blank"
+                    class="w-full sm:w-64 py-5 bg-swiggy text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-swiggy/30">
                     <span>Swiggy</span>
                     <i data-feather="shopping-bag" class="w-6 h-6"></i>
                 </a>
 
                 <!-- Zomato Button -->
-                <a href="https://www.zomato.com/pune/the-misal-stories-and-more-sinhgad-road/order" target="_blank" class="w-full sm:w-64 py-5 bg-zomato text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-zomato/30">
+                <a href="https://www.zomato.com/pune/the-misal-stories-and-more-sinhgad-road/order" target="_blank"
+                    class="w-full sm:w-64 py-5 bg-zomato text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-zomato/30">
                     <span>Zomato</span>
                     <i data-feather="shopping-cart" class="w-6 h-6"></i>
                 </a>
             </div>
-            
+
             <p class="mt-8 text-gray-500 text-sm italic">Service available from 8:00 AM to 10:00 PM</p>
         </div>
     </section>
@@ -822,13 +1142,16 @@
             <div class="text-center mb-16">
                 <h2 class="text-tms-orange font-medium mb-2 tracking-wider uppercase">Customer Love</h2>
                 <h3 class="font-playfair text-4xl md:text-5xl font-bold text-white">WALL OF LOVE</h3>
-                <div class="w-24 h-1 bg-tms-orange mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(220,38,38,0.8)]"></div>
+                <div class="w-24 h-1 bg-tms-orange mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(220,38,38,0.8)]">
+                </div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 pt-8">
                 <!-- Review 1 -->
-                <div class="stagger-item bg-tms-dark p-8 rounded-2xl shadow-lg border border-gray-200 relative group hover:-translate-y-2 transition-all duration-300">
-                    <div class="absolute -top-6 left-8 w-12 h-12 bg-tms-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-black">
+                <div
+                    class="stagger-item bg-tms-dark p-8 rounded-2xl shadow-lg border border-gray-200 relative group hover:-translate-y-2 transition-all duration-300">
+                    <div
+                        class="absolute -top-6 left-8 w-12 h-12 bg-tms-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-black">
                         <i data-feather="user" class="text-black w-6 h-6"></i>
                     </div>
                     <div class="mt-4">
@@ -839,7 +1162,9 @@
                             <i data-feather="star" class="w-4 h-4 fill-current"></i>
                             <i data-feather="star" class="w-4 h-4 fill-current"></i>
                         </div>
-                        <p class="text-gray-400 italic mb-6 leading-relaxed">"The most authentic Misal I've had in Pune! The Kolhapuri Cut is perfectly spicy and flavorful. Highly recommended for spice lovers."</p>
+                        <p class="text-gray-400 italic mb-6 leading-relaxed">"The most authentic Misal I've had in Pune!
+                            The Kolhapuri Cut is perfectly spicy and flavorful. Highly recommended for spice lovers."
+                        </p>
                         <div>
                             <h5 class="font-bold text-lg text-white">Rahul Patil</h5>
                             <span class="text-xs text-tms-orange font-medium uppercase tracking-wide">Foodie</span>
@@ -848,8 +1173,10 @@
                 </div>
 
                 <!-- Review 2 -->
-                <div class="stagger-item bg-tms-dark p-8 rounded-2xl shadow-lg border border-gray-200 relative group hover:-translate-y-2 transition-all duration-300">
-                    <div class="absolute -top-6 left-8 w-12 h-12 bg-tms-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-black">
+                <div
+                    class="stagger-item bg-tms-dark p-8 rounded-2xl shadow-lg border border-gray-200 relative group hover:-translate-y-2 transition-all duration-300">
+                    <div
+                        class="absolute -top-6 left-8 w-12 h-12 bg-tms-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-black">
                         <i data-feather="user" class="text-black w-6 h-6"></i>
                     </div>
                     <div class="mt-4">
@@ -860,17 +1187,21 @@
                             <i data-feather="star" class="w-4 h-4 fill-current"></i>
                             <i data-feather="star" class="w-4 h-4 fill-current"></i>
                         </div>
-                        <p class="text-gray-400 italic mb-6 leading-relaxed">"Great place for breakfast. The Dahi Misal balances the heat perfectly. Service is quick and the hygiene is top-notch."</p>
+                        <p class="text-gray-400 italic mb-6 leading-relaxed">"Great place for breakfast. The Dahi Misal
+                            balances the heat perfectly. Service is quick and the hygiene is top-notch."</p>
                         <div>
                             <h5 class="font-bold text-lg text-white">Priya Deshpande</h5>
-                            <span class="text-xs text-tms-orange font-medium uppercase tracking-wide">Regular Customer</span>
+                            <span class="text-xs text-tms-orange font-medium uppercase tracking-wide">Regular
+                                Customer</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Review 3 -->
-                <div class="stagger-item bg-tms-dark p-8 rounded-2xl shadow-lg border border-gray-200 relative group hover:-translate-y-2 transition-all duration-300">
-                    <div class="absolute -top-6 left-8 w-12 h-12 bg-tms-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-black">
+                <div
+                    class="stagger-item bg-tms-dark p-8 rounded-2xl shadow-lg border border-gray-200 relative group hover:-translate-y-2 transition-all duration-300">
+                    <div
+                        class="absolute -top-6 left-8 w-12 h-12 bg-tms-orange rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-black">
                         <i data-feather="user" class="text-black w-6 h-6"></i>
                     </div>
                     <div class="mt-4">
@@ -881,7 +1212,8 @@
                             <i data-feather="star" class="w-4 h-4 fill-current"></i>
                             <i data-feather="star" class="w-4 h-4"></i>
                         </div>
-                        <p class="text-gray-400 italic mb-6 leading-relaxed">"Loved the Solkadi and Cheese Misal combo. It's a modern twist to the traditional taste. A must-visit spot in Anand Nagar!"</p>
+                        <p class="text-gray-400 italic mb-6 leading-relaxed">"Loved the Solkadi and Cheese Misal combo.
+                            It's a modern twist to the traditional taste. A must-visit spot in Anand Nagar!"</p>
                         <div>
                             <h5 class="font-bold text-lg text-white">Amit Joshi</h5>
                             <span class="text-xs text-tms-orange font-medium uppercase tracking-wide">Local Guide</span>
@@ -891,85 +1223,114 @@
             </div>
         </div>
     </section>
-   <!-- 5. LOCATIONS SECTION -->
+    <!-- 5. LOCATIONS SECTION -->
     <section id="locations" class="py-20 md:py-32 bg-tms-dark min-h-screen">
         <div class="container mx-auto px-4 reveal">
             <div class="text-center mb-16">
                 <h2 class="text-tms-orange font-medium mb-2 tracking-wider uppercase">Visit Us</h2>
                 <h3 class="font-playfair text-4xl md:text-5xl font-bold text-white">OUR LOCATIONS</h3>
-                <div class="w-24 h-1 bg-tms-orange mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(220,38,38,0.8)]"></div>
+                <div class="w-24 h-1 bg-tms-orange mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(220,38,38,0.8)]">
+                </div>
             </div>
-            
+
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Mumbai -->
+                <!-- Khopari -->
                 <div class="bg-tms-gray rounded-2xl p-8 border border-white/5 box-glow text-center group">
-                    <div class="w-16 h-16 bg-tms-orange/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tms-orange transition-colors duration-300">
-                        <i data-feather="map-pin" class="text-tms-orange w-8 h-8 group-hover:text-white transition-colors duration-300"></i>
+                    <div
+                        class="w-16 h-16 bg-tms-orange/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tms-orange transition-colors duration-300">
+                        <i data-feather="map-pin"
+                            class="text-tms-orange w-8 h-8 group-hover:text-white transition-colors duration-300"></i>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Mumbai</h4>
+                    <h4 class="text-2xl font-bold text-white mb-2">Khopari</h4>
                     <p class="text-gray-400 mb-6">Authentic taste in the heart of the city.</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Soney+Apartment" target="_blank" class="inline-block px-6 py-2 border border-tms-orange text-tms-orange rounded-full hover:bg-tms-orange hover:text-white transition-all duration-300">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Soney+Apartment" target="_blank"
+                        class="inline-block px-6 py-2 border border-tms-orange text-tms-orange rounded-full hover:bg-tms-orange hover:text-white transition-all duration-300">
                         View on Map
                     </a>
                 </div>
 
-                <!-- Pune -->
+                <!-- Anand Nagar -->
                 <div class="bg-tms-gray rounded-2xl p-8 border border-white/5 box-glow text-center group">
-                    <div class="w-16 h-16 bg-tms-orange/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tms-orange transition-colors duration-300">
-                        <i data-feather="map-pin" class="text-tms-orange w-8 h-8 group-hover:text-white transition-colors duration-300"></i>
+                    <div
+                        class="w-16 h-16 bg-tms-orange/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tms-orange transition-colors duration-300">
+                        <i data-feather="map-pin"
+                            class="text-tms-orange w-8 h-8 group-hover:text-white transition-colors duration-300"></i>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Pune</h4>
+                    <h4 class="text-2xl font-bold text-white mb-2">Anand Nagar</h4>
                     <p class="text-gray-400 mb-6">Experience the spicy Puneri misal here.</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Soney+Apartment" target="_blank" class="inline-block px-6 py-2 border border-tms-orange text-tms-orange rounded-full hover:bg-tms-orange hover:text-white transition-all duration-300">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Soney+Apartment" target="_blank"
+                        class="inline-block px-6 py-2 border border-tms-orange text-tms-orange rounded-full hover:bg-tms-orange hover:text-white transition-all duration-300">
                         View on Map
                     </a>
                 </div>
 
-                <!-- Nagpur -->
+                <!-- Khopat -->
                 <div class="bg-tms-gray rounded-2xl p-8 border border-white/5 box-glow text-center group">
-                    <div class="w-16 h-16 bg-tms-orange/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tms-orange transition-colors duration-300">
-                        <i data-feather="map-pin" class="text-tms-orange w-8 h-8 group-hover:text-white transition-colors duration-300"></i>
+                    <div
+                        class="w-16 h-16 bg-tms-orange/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-tms-orange transition-colors duration-300">
+                        <i data-feather="map-pin"
+                            class="text-tms-orange w-8 h-8 group-hover:text-white transition-colors duration-300"></i>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Nagpur</h4>
+                    <h4 class="text-2xl font-bold text-white mb-2">Khopat</h4>
                     <p class="text-gray-400 mb-6">Serving the famous Saoji style spicy misal.</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Soney+Apartment" target="_blank" class="inline-block px-6 py-2 border border-tms-orange text-tms-orange rounded-full hover:bg-tms-orange hover:text-white transition-all duration-300">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Soney+Apartment" target="_blank"
+                        class="inline-block px-6 py-2 border border-tms-orange text-tms-orange rounded-full hover:bg-tms-orange hover:text-white transition-all duration-300">
                         View on Map
                     </a>
                 </div>
+            </div>
+
+            <!-- Coming Soon -->
+            <div class="mt-16 text-center reveal">
+                <p class="text-2xl md:text-3xl font-playfair text-tms-orange font-medium italic drop-shadow-sm">And many
+                    more coming soon...</p>
+                <div class="w-16 h-px bg-tms-orange/50 mx-auto mt-4"></div>
             </div>
         </div>
     </section>
     <!-- Franchise Section -->
     <section id="franchise" class="py-20 md:py-32 bg-tms-gray relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23dc2626\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23dc2626\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]">
+        </div>
         <div class="container mx-auto px-4 relative z-10 reveal">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-tms-orange font-medium mb-2 tracking-wider uppercase drop-shadow-sm">Business Opportunity</h2>
-                <h3 class="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-md">Own a Franchise</h3>
+                <h2 class="text-tms-orange font-medium mb-2 tracking-wider uppercase drop-shadow-sm">Business
+                    Opportunity</h2>
+                <h3 class="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-md">Own a Franchise
+                </h3>
                 <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
-                    Join the fastest growing Misal chain in Maharashtra. Low investment, high returns, 
+                    Join the fastest growing Misal chain in Maharashtra. Low investment, high returns,
                     and complete support from our team. Be a part of the spice revolution.
                 </p>
-                
+
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
-                        <i data-feather="trending-up" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
+                    <div
+                        class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
+                        <i data-feather="trending-up"
+                            class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">High ROI</h4>
                         <p class="text-gray-400 text-sm">Break even in 8-12 months with proven business model</p>
                     </div>
-                    <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
-                        <i data-feather="headphones" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
+                    <div
+                        class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
+                        <i data-feather="headphones"
+                            class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">Full Support</h4>
                         <p class="text-gray-400 text-sm">Training, marketing, and operational support provided</p>
                     </div>
-                    <div class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
-                        <i data-feather="shield" class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
+                    <div
+                        class="bg-black p-6 rounded-2xl border border-white/10 box-glow transition-all hover:-translate-y-1">
+                        <i data-feather="shield"
+                            class="w-10 h-10 text-tms-orange mx-auto mb-4 drop-shadow-[0_0_8px_rgba(220,38,38,0.6)]"></i>
                         <h4 class="font-bold text-xl mb-2 text-white">Trusted Brand</h4>
                         <p class="text-gray-400 text-sm">13 years of excellence in Maharashtra cuisine</p>
                     </div>
                 </div>
-                
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ3GlN0Tvtah6GCvqTI0cdsb0b-LsCSQqkv9aAh9gVKgEq3g/viewform?usp=publish-editor" target="_blank" class="inline-block px-10 py-4 bg-tms-orange text-[#ffffff] font-bold rounded-full hover:bg-tms-orange-dark transition-all duration-300 transform hover:scale-105 shadow-lg shadow-tms-orange/25 box-glow border border-transparent">
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ3GlN0Tvtah6GCvqTI0cdsb0b-LsCSQqkv9aAh9gVKgEq3g/viewform?usp=publish-editor"
+                    target="_blank"
+                    class="inline-block px-10 py-4 bg-tms-orange text-[#ffffff] font-bold rounded-full hover:bg-tms-orange-dark transition-all duration-300 transform hover:scale-105 shadow-lg shadow-tms-orange/25 box-glow border border-transparent">
                     Apply for Franchise
                 </a>
             </div>
@@ -980,37 +1341,49 @@
     <tms-footer></tms-footer>
 
     <!-- Extraordinary Story Modal -->
-    <div id="story-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" aria-modal="true" role="dialog">
+    <div id="story-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" aria-modal="true"
+        role="dialog">
         <!-- Blur Backdrop -->
-        <div class="absolute inset-0 bg-white/80 backdrop-blur-xl transition-opacity duration-500" onclick="closeStory()"></div>
-        
+        <div class="absolute inset-0 bg-white/80 backdrop-blur-xl transition-opacity duration-500"
+            onclick="closeStory()"></div>
+
         <!-- Premium Modal Card -->
-        <div class="modal-card relative w-full max-w-2xl max-h-[90vh] bg-black rounded-2xl overflow-hidden shadow-2xl transform transition-all scale-100 border border-tms-orange/30 flex flex-col">
-            
+        <div
+            class="modal-card relative w-full max-w-2xl max-h-[90vh] bg-black rounded-2xl overflow-hidden shadow-2xl transform transition-all scale-100 border border-tms-orange/30 flex flex-col">
+
             <!-- Decorative Header Gradient -->
-            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-tms-orange/20 to-transparent pointer-events-none z-0"></div>
-            
+            <div
+                class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-tms-orange/20 to-transparent pointer-events-none z-0">
+            </div>
+
             <!-- Close Button (Pinned to Card Top Right) -->
-            <button onclick="closeStory()" class="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full bg-black/60 text-tms-orange hover:text-black hover:bg-tms-orange transition-all duration-300 border border-tms-orange/50 group z-30 backdrop-blur-md shadow-lg">
-                <i data-feather="x" class="w-5 h-5 transform group-hover:rotate-90 transition-transform duration-300"></i>
+            <button onclick="closeStory()"
+                class="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full bg-black/60 text-tms-orange hover:text-black hover:bg-tms-orange transition-all duration-300 border border-tms-orange/50 group z-30 backdrop-blur-md shadow-lg">
+                <i data-feather="x"
+                    class="w-5 h-5 transform group-hover:rotate-90 transition-transform duration-300"></i>
             </button>
-            
+
             <!-- Modal Content Wrapper (Scrollable) -->
             <div class="relative z-10 p-6 md:p-8 overflow-y-auto flex-1 custom-scrollbar">
 
                 <div class="text-center relative mt-4 md:mt-2">
                     <!-- Story Image Displayed Big and Circular - Scaled down for better fit -->
-                    <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden border-4 border-tms-orange shadow-[0_0_20px_rgba(220,38,38,0.3)] mb-4 relative z-10 bg-white">
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden border-4 border-tms-orange shadow-[0_0_20px_rgba(220,38,38,0.3)] mb-4 relative z-10 bg-white">
                         <img id="modal-image" src="" alt="Misal Story" class="w-full h-full object-cover">
                     </div>
 
-                    <span class="inline-block py-1 px-3 md:px-4 rounded-full bg-tms-orange/10 text-tms-orange text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-3 md:mb-4 border border-tms-orange/20 shadow-[0_0_15px_rgba(220,38,38,0.2)]">The Origin Story</span>
-                    
+                    <span
+                        class="inline-block py-1 px-3 md:px-4 rounded-full bg-tms-orange/10 text-tms-orange text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-3 md:mb-4 border border-tms-orange/20 shadow-[0_0_15px_rgba(220,38,38,0.2)]">The
+                        Origin Story</span>
+
                     <!-- Dynamic Spice Level Container -->
                     <div id="modal-spice" class="flex justify-center gap-1 mb-3 text-xl md:text-2xl h-6 md:h-8"></div>
 
-                    <h3 id="modal-title" class="font-playfair text-3xl md:text-4xl font-bold text-white mb-4 leading-tight drop-shadow-xl tracking-wide"></h3>
-                    
+                    <h3 id="modal-title"
+                        class="font-playfair text-3xl md:text-4xl font-bold text-white mb-4 leading-tight drop-shadow-xl tracking-wide">
+                    </h3>
+
                     <!-- Decorative Divider -->
                     <div class="flex justify-center items-center gap-3 md:gap-4 mb-6 opacity-80">
                         <div class="h-px w-12 md:w-16 bg-gradient-to-r from-transparent to-tms-orange"></div>
@@ -1024,16 +1397,22 @@
                 <!-- Story Text -->
                 <div class="modal-bg-texture absolute inset-0 opacity-5 pointer-events-none"></div>
                 <div class="relative prose prose-lg max-w-none px-2">
-                    <p id="modal-content" class="text-gray-300 leading-relaxed text-center font-light italic font-playfair text-lg md:text-xl drop-shadow-md"></p>
+                    <p id="modal-content"
+                        class="text-gray-300 leading-relaxed text-center font-light italic font-playfair text-lg md:text-xl drop-shadow-md">
+                    </p>
                 </div>
 
                 <!-- Footer Action -->
                 <div class="mt-8 mb-2 text-center">
-                   <button onclick="closeStory()" class="group relative px-6 md:px-8 py-2.5 md:py-3 bg-transparent overflow-hidden rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer">
-                        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-tms-orange to-tms-orange-dark opacity-10 group-hover:opacity-20 transition-opacity"></span>
+                    <button onclick="closeStory()"
+                        class="group relative px-6 md:px-8 py-2.5 md:py-3 bg-transparent overflow-hidden rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer">
+                        <span
+                            class="absolute inset-0 w-full h-full bg-gradient-to-r from-tms-orange to-tms-orange-dark opacity-10 group-hover:opacity-20 transition-opacity"></span>
                         <span class="absolute inset-0 w-full h-full border border-tms-orange/50 rounded-full"></span>
-                        <span class="relative text-tms-orange font-bold tracking-widest text-[10px] md:text-xs uppercase group-hover:text-white transition-colors">Close Chapter</span>
-                   </button>
+                        <span
+                            class="relative text-tms-orange font-bold tracking-widest text-[10px] md:text-xs uppercase group-hover:text-white transition-colors">Close
+                            Chapter</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -1091,10 +1470,10 @@
                     </div>
                 </nav>
                 `;
-                
+
                 // Initialize Feather icons inside the component
                 if (window.feather) feather.replace();
-                
+
                 // Attach event listeners for mobile menu
                 this.setupMobileMenu();
                 this.setupScrollSpy();
@@ -1111,38 +1490,39 @@
                     document.body.classList.toggle('overflow-hidden');
                 };
 
-                if(btn) btn.addEventListener('click', toggleMenu);
-                if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
-                
+                if (btn) btn.addEventListener('click', toggleMenu);
+                if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+
                 links.forEach(link => {
                     link.addEventListener('click', toggleMenu);
                 });
             }
 
-            // Highlighting active link based on scroll
+            // Highlighting active link based on SPA hash
             setupScrollSpy() {
-                const sections = document.querySelectorAll('section');
-                const navLinks = this.querySelectorAll('.nav-link');
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            navLinks.forEach(link => {
-                                // Reset to Inactive State (White with opacity)
-                                link.classList.remove('text-[#ffffff]', 'opacity-100');
-                                link.classList.add('text-[#ffffff]/70');
-                                
-                                if (link.getAttribute('href') === `#${entry.target.id}`) {
-                                    // Set to Active State (Full White)
-                                    link.classList.remove('text-[#ffffff]/70');
-                                    link.classList.add('text-[#ffffff]', 'opacity-100');
-                                }
-                            });
+                const navLinks = this.querySelectorAll('.nav-link, .mobile-link');
+                const updateActive = () => {
+                    let hash = window.location.hash || '#home';
+                    navLinks.forEach(link => {
+                        if (link.classList.contains('nav-link')) {
+                            link.classList.remove('text-[#ffffff]', 'opacity-100');
+                            link.classList.add('text-[#ffffff]/70');
+                            if (link.getAttribute('href') === hash) {
+                                link.classList.remove('text-[#ffffff]/70');
+                                link.classList.add('text-[#ffffff]', 'opacity-100');
+                            }
+                        } else if (link.classList.contains('mobile-link')) {
+                            link.classList.remove('text-tms-orange');
+                            link.classList.add('text-white');
+                            if (link.getAttribute('href') === hash) {
+                                link.classList.remove('text-white');
+                                link.classList.add('text-tms-orange');
+                            }
                         }
                     });
-                }, { threshold: 0.1 });
-
-                sections.forEach(section => observer.observe(section));
+                };
+                window.addEventListener('hashchange', updateActive);
+                setTimeout(updateActive, 50);
             }
         }
         customElements.define('tms-navbar', TMSNavbar);
@@ -1162,33 +1542,33 @@
                     </div>
 
                     <div class="container mx-auto px-4 relative z-20">
-                        <div class="grid md:grid-cols-4 gap-12 mb-16">
+                        <div class="grid grid-cols-4 gap-2 md:gap-12 mb-16">
                             <!-- Brand -->
-                            <div class="col-span-1 md:col-span-2">
-                                <div class="mb-6">
-                                    <img src="images/logo.jpeg" alt="The Misal Story Logo" class="h-24 w-auto rounded-xl bg-black p-1">
+                            <div class="col-span-2">
+                                <div class="mb-4 md:mb-6">
+                                    <img src="images/logo.jpeg" alt="The Misal Story Logo" class="h-12 md:h-24 w-auto rounded-xl bg-black p-1">
                                 </div>
-                                <p class="text-black mb-8 max-w-sm">
+                                <p class="text-black mb-6 md:mb-8 max-w-sm text-[10px] md:text-base leading-tight md:leading-normal">
                                     Serving authentic Maharashtrian flavors with love and passion. Join us on a culinary journey through the state's diverse misal traditions.
                                 </p>
-                                <div class="flex gap-4">
+                                <div class="flex gap-2 md:gap-4">
                                     <!-- Social Links -->
-                                    <a href="https://www.instagram.com/tmsandmore?igsh=bzgzOWVyZ2p4dXJs" target="_blank" class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
-                                        <i data-feather="instagram" class="w-5 h-5"></i>
+                                    <a href="https://www.instagram.com/tmsandmore?igsh=bzgzOWVyZ2p4dXJs" target="_blank" class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                        <i data-feather="instagram" class="w-3 h-3 md:w-5 md:h-5"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
-                                        <i data-feather="facebook" class="w-5 h-5"></i>
+                                    <a href="#" class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                        <i data-feather="facebook" class="w-3 h-3 md:w-5 md:h-5"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
-                                        <i data-feather="twitter" class="w-5 h-5"></i>
+                                    <a href="#" class="w-6 h-6 md:w-10 md:h-10 rounded-full bg-black/10 flex items-center justify-center hover:bg-tms-blue transition-all duration-300 text-black hover:shadow-[0_0_10px_rgba(255,85,0,0.6)]">
+                                        <i data-feather="twitter" class="w-3 h-3 md:w-5 md:h-5"></i>
                                     </a>
                                 </div>
                             </div>
 
                             <!-- Quick Links -->
-                            <div>
-                                <h4 class="font-playfair font-bold text-xl mb-6 text-tms-orange text-black">Quick Links</h4>
-                                <ul class="space-y-4 text-black">
+                            <div class="col-span-1">
+                                <h4 class="font-playfair font-bold text-xs md:text-xl mb-3 md:mb-6 text-tms-orange text-black">Quick Links</h4>
+                                <ul class="space-y-2 md:space-y-4 text-black text-[10px] md:text-base">
                                     <li><a href="#home" class="hover:text-tms-orange transition-colors">Home</a></li>
                                     <li><a href="#about" class="hover:text-tms-orange transition-colors">Our Story</a></li>
                                     <li><a href="#menu" class="hover:text-tms-orange transition-colors">Full Menu</a></li>
@@ -1197,27 +1577,27 @@
                             </div>
 
                             <!-- Contact -->
-                            <div>
-                                <h4 class="font-playfair font-bold text-xl mb-6 text-tms-orange text-black">Contact Us</h4>
-                                <ul class="space-y-4 text-black">
-                                    <li class="flex items-start gap-3">
-                                        <i data-feather="map-pin" class="w-5 h-5 text-tms-orange mt-1"></i>
-                                        <span>Shop No. 4, Anand Nagar,<br>Thane, Maharashtra 400604</span>
+                            <div class="col-span-1">
+                                <h4 class="font-playfair font-bold text-xs md:text-xl mb-3 md:mb-6 text-tms-orange text-black">Contact Us</h4>
+                                <ul class="space-y-2 md:space-y-4 text-black text-[10px] md:text-base">
+                                    <li class="flex items-start gap-1 md:gap-3">
+                                        <i data-feather="map-pin" class="w-3 h-3 md:w-5 md:h-5 text-tms-orange md:mt-1 flex-shrink-0"></i>
+                                        <span class="leading-tight md:leading-normal">Shop Anand Nagar/Kopri/Khopat<br>Thane, Maharashtra 400604</span>
                                     </li>
-                                    <li class="flex items-center gap-3">
-                                        <i data-feather="phone" class="w-5 h-5 text-tms-orange"></i>
-                                        <span>Not Available</span>
+                                    <li class="flex items-center gap-1 md:gap-3">
+                                        <i data-feather="phone" class="w-3 h-3 md:w-5 md:h-5 text-tms-orange flex-shrink-0"></i>
+                                        <span>8655854504 / 8655854505</span>
                                     </li>
-                                    <li class="flex items-center gap-3">
-                                        <i data-feather="mail" class="w-5 h-5 text-tms-orange"></i>
-                                        <span>hello@themisalstories.com</span>
+                                    <li class="flex items-center gap-1 md:gap-3">
+                                        <i data-feather="mail" class="w-3 h-3 md:w-5 md:h-5 text-tms-orange flex-shrink-0"></i>
+                                        <span class="break-all md:break-normal"><br>hello@themisalstories.com</br></span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-black">
-                            <p>&copy; 2026 The Misal Stories & MORE. All rights reserved.</p>
+                        <div class="border-t border-black/10 pt-4 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4 text-[10px] md:text-sm text-black">
+                            <p class="text-center md:text-left">&copy; 2026 The Misal Stories & MORE. All rights reserved.</p>
                             <p><span class="text-tms-orange">❤</span> for Foodies</p>
                         </div>
                     </div>
@@ -1307,10 +1687,10 @@
 
         // --- Logic ---
         function getSpiceHTML(level) {
-            if(!level) return '';
+            if (!level) return '';
             let html = '';
-            for(let i=0; i<5; i++) {
-                if(i < level) html += '<span class="text-tms-orange drop-shadow-md">🌶️</span>';
+            for (let i = 0; i < 5; i++) {
+                if (i < level) html += '<span class="text-tms-orange drop-shadow-md">🌶️</span>';
                 else html += '<span class="opacity-20 grayscale">🌶️</span>';
             }
             return html;
@@ -1322,17 +1702,17 @@
             const content = document.getElementById('modal-content');
             const spiceContainer = document.getElementById('modal-spice');
             const image = document.getElementById('modal-image');
-            
-            if(stories[id]) {
+
+            if (stories[id]) {
                 title.textContent = stories[id].title;
                 content.textContent = stories[id].content;
                 spiceContainer.innerHTML = getSpiceHTML(stories[id].spice);
                 image.src = stories[id].image;
                 image.alt = stories[id].title;
-                
+
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden'; // Prevent scrolling
-                
+
                 // Re-trigger icon replacement for dynamic content
                 if (window.feather) feather.replace();
             }
@@ -1350,20 +1730,21 @@
 
             // 2. Scroll Reveal Animation & Stagger Logic
             const revealElements = document.querySelectorAll('.reveal');
-            
+
             const revealOnScroll = () => {
                 const windowHeight = window.innerHeight;
-                const elementVisible = 150;
+                const elementVisible = 50;
 
                 revealElements.forEach((element) => {
+                    if (element.closest('section') && element.closest('section').classList.contains('hidden')) return;
+
                     const elementTop = element.getBoundingClientRect().top;
                     if (elementTop < windowHeight - elementVisible) {
                         element.classList.add('active');
-                        
-                        // Dynamically Add Stagger Delays to Children
+
                         const staggerItems = element.querySelectorAll('.stagger-item');
                         staggerItems.forEach((item, index) => {
-                            const delay = (index % 6) * 100; // Reset delay every 6 items
+                            const delay = (index % 6) * 100;
                             item.style.animationDelay = `${delay}ms`;
                         });
                     }
@@ -1371,8 +1752,49 @@
             };
 
             window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Trigger once on load
-            
+
+            // 3. SPA Routing Logic
+            const pageMapping = {
+                'home': ['home', 'about', 'reviews'],
+                'about': ['home', 'about', 'reviews'],
+                'menu': ['menu'],
+                'locations': ['locations'],
+                'franchise': ['franchise'],
+                'delivery': ['delivery']
+            };
+
+            const handleSPA = () => {
+                let hash = window.location.hash.substring(1) || 'home';
+                const sectionsToShow = pageMapping[hash] || pageMapping['home'];
+                const allSections = ['home', 'about', 'menu', 'delivery', 'reviews', 'locations', 'franchise'];
+
+                allSections.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        if (sectionsToShow.includes(id)) {
+                            el.classList.remove('hidden');
+                        } else {
+                            el.classList.add('hidden');
+                            el.classList.remove('active');
+                            el.querySelectorAll('.reveal').forEach(r => r.classList.remove('active'));
+                        }
+                    }
+                });
+
+                if (hash !== 'about') {
+                    window.scrollTo({ top: 0, behavior: 'auto' });
+                } else {
+                    const aboutEl = document.getElementById('about');
+                    if (aboutEl) {
+                        aboutEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                setTimeout(revealOnScroll, 100);
+            };
+
+            window.addEventListener('hashchange', handleSPA);
+            handleSPA(); // Initialize
+
             // Close modal on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') closeStory();
@@ -1380,4 +1802,5 @@
         });
     </script>
 </body>
+
 </html>
